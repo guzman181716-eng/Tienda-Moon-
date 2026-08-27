@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FF6F9C">
+<title>Moon 🌙 · Dulces y Snacks Coreanos</title>
+<meta name="description" content="Moon · El sabor de Corea, directo a tus manos 🇰 Ramen, mochis, bebidas y snacks. Pide por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --pink:#FF6F9C;--pink2:#FF8FB2;--pinkbg:#FFEBF2;
+  --blue:#7EB6FF;--bluebg:#EAF3FF;
+  --red:#FF5A5F;--yellow:#FFD97D;--yellowbg:#FFF6DE;
+  --green:#25D366;--greend:#1EBE5B;
+  --ink:#33262E;--muted:#9A8C96;--line:#F4E7EC;--bg:#FFFCFA;
+  --shadow:0 10px 30px rgba(255,111,156,.12);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',system-ui,sans-serif;background:linear-gradient(#FFFCFA,#FFF7F9);color:var(--ink);line-height:1.45}
+.msr{font-family:'Material Symbols Rounded';font-style:normal;line-height:1;display:inline-block;font-variation-settings:'FILL' 1,'wght' 500,'GRAD' 0,'opsz' 24;user-select:none}
+.wrap{max-width:600px;margin:0 auto;padding:0 16px}
+img{display:block}
+button{font-family:inherit}
+.marquee{background:linear-gradient(90deg,var(--pink),#FF9EBD);color:#fff;font-size:.75rem;font-weight:600;overflow:hidden;white-space:nowrap;padding:6px 0}
+.marquee span{display:inline-block;padding-left:100%;animation:mq 26s linear infinite}
+@keyframes mq{to{transform:translateX(-100%)}}
+#topbar{position:sticky;top:0;z-index:50;background:rgba(255,252,250,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar-in{display:flex;align-items:center;justify-content:space-between;height:58px}
+.logo{display:flex;gap:10px;align-items:center;text-decoration:none;color:var(--ink)}
+.logo-badge{width:38px;height:38px;border-radius:14px;background:linear-gradient(135deg,var(--pink),#FF9EBD);display:grid;place-items:center;font-size:19px;box-shadow:var(--shadow)}
+.logo b{font-family:'Baloo 2';font-size:1.25rem;display:block;line-height:1}
+.logo small{color:var(--muted);font-size:.66rem;letter-spacing:.6px;font-weight:600}
+.iconbtn{width:40px;height:40px;border-radius:14px;border:1.5px solid var(--line);background:#fff;display:grid;place-items:center;color:var(--pink);cursor:pointer;transition:transform .15s}
+.iconbtn:active{transform:scale(.92)}
+main{padding-bottom:120px}
+.view{display:none}
+.view.on{display:block;animation:fadeUp .35s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.page-head{padding:18px 0 4px}
+.page-head h1{font-family:'Baloo 2';font-size:1.45rem}
+.page-head .sub{color:var(--muted);font-size:.85rem;margin-top:2px}
+.hero{position:relative;overflow:hidden;border-radius:26px;margin-top:14px;padding:26px 22px;background:linear-gradient(150deg,#FFE9F2 0%,#FFF4E4 55%,#EAF3FF 100%);box-shadow:var(--shadow)}
+.deco{position:absolute;opacity:.35;pointer-events:none}
+.d1{font-size:52px;top:12px;right:16px;transform:rotate(15deg)}
+.d2{font-size:30px;top:78px;right:110px;transform:rotate(-10deg)}
+.d3{font-size:28px;bottom:110px;right:26px;transform:rotate(8deg)}
+.hello{font-weight:700;color:var(--pink);letter-spacing:.3px}
+.hero h1{font-family:'Baloo 2';font-size:1.85rem;line-height:1.15;margin:6px 0 10px}
+.hero p{color:#7A6A74;font-size:.93rem;max-width:36ch}
+.hero-btns{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.hero-imgs{display:flex;gap:10px;margin-top:20px}
+.hero-imgs img,.hero-imgs .ph{width:76px;height:76px;border-radius:18px;object-fit:cover;background:#fff;box-shadow:0 8px 18px rgba(51,38,46,.14);border:3px solid #fff}
+.hero-imgs :nth-child(2){transform:translateY(-7px) rotate(2deg)}
+.hero-imgs :nth-child(3){transform:translateY(4px) rotate(-2deg)}
+.hero-imgs :nth-child(4){transform:translateY(-4px) rotate(3deg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;cursor:pointer;font-weight:700;border-radius:16px;padding:14px 22px;font-size:.95rem;transition:transform .15s;text-decoration:none}
+.btn:active{transform:scale(.96)}
+.btn-pink{background:linear-gradient(135deg,var(--pink),var(--pink2));color:#fff;box-shadow:0 8px 20px rgba(255,111,156,.4)}
+.btn-ghost{background:#fff;color:var(--pink);border:1.5px solid #FFB8CE}
+.btn-wa{background:linear-gradient(135deg,var(--green),var(--greend));color:#fff;box-shadow:0 10px 24px rgba(37,211,102,.4);width:100%;padding:16px}
+.sec{margin-top:28px}
+.sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.sec-head h2{font-family:'Baloo 2';font-size:1.22rem}
+.sec-head a{color:var(--pink);font-size:.83rem;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:2px}
+.cats{display:flex;gap:12px;overflow-x:auto;padding:4px 2px 8px;scroll-snap-type:x mandatory;margin:0 -16px;padding-left:16px;padding-right:16px}
+.cats::-webkit-scrollbar,.hscroll::-webkit-scrollbar,.chips::-webkit-scrollbar{display:none}
+.cat{min-width:88px;scroll-snap-align:start;background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:14px 8px;text-align:center;cursor:pointer;transition:.2s}
+.cat:active{transform:scale(.95);border-color:#FFB8CE;background:var(--pinkbg)}
+.cat .e{font-size:1.7rem;display:block;margin-bottom:6px}
+.cat .n{font-size:.7rem;font-weight:700;color:#6E5F68;line-height:1.25;display:block}
+.catgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+.catcard{background:#fff;border-radius:20px;padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:6px;border:1.5px solid var(--line);cursor:pointer;transition:.2s;animation:fadeUp .4s both}
+.catcard:active{transform:scale(.96);border-color:#FFB8CE}
+.catcard .e{font-size:2rem}
+.catcard .n{font-weight:700;font-size:.85rem;text-align:center}
+.catcard .c{font-size:.7rem;color:var(--muted)}
+.hscroll{display:flex;gap:12px;overflow-x:auto;padding:4px 16px 10px;scroll-snap-type:x mandatory;margin:0 -16px}
+.hscroll .pcard{min-width:162px;max-width:162px;scroll-snap-align:start}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:14px}
+@media(max-width:380px){.grid{grid-template-columns:repeat(2,1fr);gap:10px}}
+.pcard{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 6px 18px rgba(51,38,46,.06);cursor:pointer;transition:transform .2s,box-shadow .2s;animation:fadeUp .4s both}
+.pcard:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.pcard-img{position:relative;aspect-ratio:1;background:#FFF8F9;overflow:hidden}
+.pcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s;cursor:zoom-in}
+.pcard:hover .pcard-img img{transform:scale(1.05)}
+.ph{width:100%;height:100%;display:grid;place-items:center;background:linear-gradient(135deg,#FFF0F5,#FFF8EC)}
+.ph span{font-size:3rem}
+.badges{position:absolute;top:8px;left:8px;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.badge{font-size:.6rem;font-weight:800;padding:3px 9px;border-radius:99px;color:#fff;display:inline-flex;align-items:center;gap:3px;letter-spacing:.3px}
+.badge .msr{font-size:.72rem}
+.b-new{background:var(--pink)}.b-pop{background:var(--blue)}.b-hot{background:var(--red)}.b-18{background:#6B4E71}
+.zoomchip{position:absolute;right:8px;bottom:8px;width:31px;height:31px;border-radius:10px;background:rgba(255,255,255,.92);border:none;display:grid;place-items:center;color:#7A6A74;cursor:pointer;box-shadow:0 3px 8px rgba(0,0,0,.14)}
+.zoomchip .msr{font-size:1rem}
+.pcard-b{padding:10px 12px 12px}
+.pcard-b h3{font-size:.85rem;font-weight:600;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.1em}
+.pcard-b .size{font-size:.7rem;color:var(--muted)}
+.pcard-b .row{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.pcard-b b{font-size:.93rem;color:var(--pink)}
+.addbtn{width:36px;height:36px;border-radius:12px;border:none;background:linear-gradient(135deg,var(--pink),var(--pink2));color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 5px 12px rgba(255,111,156,.35);transition:transform .15s}
+.addbtn:active{transform:scale(.88)}
+.addbtn .msr{font-size:1.05rem}
+.promo{margin-top:28px;border-radius:24px;padding:24px 20px;background:linear-gradient(135deg,#8A63D2,#C39BE8);color:#fff;position:relative;overflow:hidden;box-shadow:0 12px 28px rgba(138,99,210,.3)}
+.promo h3{font-family:'Baloo 2';font-size:1.28rem}
+.promo p{opacity:.93;font-size:.88rem;margin:6px 0 14px;max-width:34ch}
+.promo .btn{background:#fff;color:#8A63D2}
+.promo .big-e{position:absolute;right:-6px;bottom:-14px;font-size:84px;transform:rotate(-8deg)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+@media(max-width:430px){.steps{grid-template-columns:repeat(2,1fr)}}
+.step{background:#fff;border-radius:16px;padding:14px 6px;text-align:center;box-shadow:0 4px 14px rgba(51,38,46,.05)}
+.step .e{font-size:1.5rem}
+.step p{font-size:.62rem;font-weight:700;color:#6E5F68;margin-top:6px;line-height:1.3}
+.foot{margin:36px 0 10px;text-align:center;color:var(--muted);font-size:.8rem}
+.foot .logo{justify-content:center;margin-bottom:8px}
+.foot .wa-chip{display:inline-flex;align-items:center;gap:6px;background:#E4F8EC;color:#1FA05A;font-weight:700;border-radius:99px;padding:8px 14px;font-size:.78rem;margin:10px 0 6px}
+.tiny{font-size:.7rem;margin-top:6px}
+.toolbar{position:sticky;top:58px;z-index:40;background:linear-gradient(#FFFCFA 82%,transparent);padding:10px 0 4px}
+.searchbox{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:0 14px;height:46px}
+.searchbox input{border:none;outline:none;flex:1;font-family:inherit;font-size:.92rem;background:transparent;color:var(--ink)}
+.searchbox .msr{color:var(--muted)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:10px 0 6px}
+.chip-f{flex:0 0 auto;border:1.5px solid var(--line);background:#fff;border-radius:99px;padding:8px 14px;font-size:.78rem;font-weight:700;color:#6E5F68;cursor:pointer;transition:.2s}
+.chip-f.on{background:var(--pink);border-color:var(--pink);color:#fff;box-shadow:0 6px 14px rgba(255,111,156,.35)}
+.count-lbl{font-size:.73rem;color:var(--muted);margin:4px 2px 12px}
+.dtop{display:flex;align-items:center;gap:10px;padding:14px 0}
+.dtop b{font-size:.95rem;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dimg{position:relative;border-radius:24px;overflow:hidden;background:#FFF8F9;box-shadow:var(--shadow);cursor:zoom-in}
+.dimg img{width:100%;aspect-ratio:1;object-fit:cover}
+.dimg .ph span{font-size:5.5rem}
+.dzoom-hint{position:absolute;right:12px;bottom:12px;background:rgba(255,255,255,.94);border-radius:99px;padding:7px 12px;font-size:.72rem;font-weight:700;color:#7A6A74;display:flex;gap:5px;align-items:center}
+.dzoom-hint .msr{font-size:.95rem}
+.dchips{display:flex;gap:8px;margin:16px 0 6px;flex-wrap:wrap}
+.chip{font-size:.72rem;font-weight:800;border-radius:99px;padding:6px 12px;display:inline-flex;gap:5px;align-items:center}
+.chip .msr{font-size:.9rem}
+.chip.ok{background:#E4F8EC;color:#1FA05A}
+.chip.cat{background:var(--bluebg);color:#4A7FD6}
+.dname{font-family:'Baloo 2';font-size:1.5rem;line-height:1.2}
+.dprice{font-size:1.45rem;color:var(--pink);font-weight:800;margin:6px 0 2px}
+.dprice small{font-size:.85rem;color:var(--muted);font-weight:600}
+.ddesc{color:#7A6A74;font-size:.94rem;margin:10px 0 16px}
+.qtylbl{font-size:.78rem;font-weight:800;color:#6E5F68;display:block;margin-bottom:6px}
+.qty{display:inline-flex;align-items:center;gap:14px;background:#fff;border:1.5px solid var(--line);border-radius:99px;padding:7px 10px}
+.qty button{width:34px;height:34px;border-radius:50%;border:none;background:var(--pinkbg);color:var(--pink);display:grid;place-items:center;cursor:pointer}
+.qty button:active{transform:scale(.9)}
+.qty span{min-width:26px;text-align:center;font-weight:800}
+.dbar{position:sticky;bottom:calc(78px + env(safe-area-inset-bottom));margin-top:20px;display:flex;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);padding:10px;border-radius:20px;box-shadow:0 -4px 24px rgba(51,38,46,.1)}
+.citem{display:flex;gap:12px;background:#fff;border-radius:18px;padding:12px;box-shadow:0 6px 18px rgba(51,38,46,.06);margin-bottom:12px;position:relative;animation:fadeUp .3s both}
+.ci-img{width:70px;height:70px;border-radius:14px;object-fit:cover;background:#FFF8F9;flex:none;cursor:zoom-in}
+.ci-img.ph span{font-size:1.7rem}
+.ci-b{flex:1;min-width:0}
+.ci-b h4{font-size:.88rem;font-weight:700;padding-right:22px}
+.ci-b .u{font-size:.73rem;color:var(--muted)}
+.ci-row{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.mini-qty{display:flex;align-items:center;gap:10px;background:var(--pinkbg);border-radius:99px;padding:4px 8px}
+.mini-qty button{width:26px;height:26px;border-radius:50%;border:none;background:#fff;color:var(--pink);display:grid;place-items:center;cursor:pointer}
+.mini-qty button .msr{font-size:.95rem}
+.mini-qty b{min-width:18px;text-align:center;font-size:.9rem}
+.ci-sub{font-weight:800;color:var(--pink);font-size:.92rem}
+.cdel{position:absolute;top:8px;right:8px;width:26px;height:26px;border:none;border-radius:50%;background:#F6EEF1;color:#B78A9B;display:grid;place-items:center;cursor:pointer}
+.cdel .msr{font-size:.95rem}
+.summary{background:#fff;border-radius:20px;padding:16px;box-shadow:0 6px 18px rgba(51,38,46,.06);margin-top:16px}
+.srow{display:flex;justify-content:space-between;font-size:.9rem;color:#7A6A74;margin-bottom:6px}
+.srow.total{color:var(--ink);font-weight:800;font-size:1.08rem;border-top:1.5px dashed var(--line);padding-top:10px;margin-top:10px}
+.field{margin-top:12px}
+.field label{font-size:.78rem;font-weight:800;color:#6E5F68;display:block;margin-bottom:6px}
+.field input,.field textarea{width:100%;border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;font-family:inherit;font-size:.92rem;background:#FFFBFC;color:var(--ink);outline:none;transition:.2s}
+.field input:focus,.field textarea:focus{border-color:#FFB8CE;background:#fff;box-shadow:0 0 0 4px rgba(255,111,156,.12)}
+.field textarea{resize:none}
+.field.err input{border-color:var(--red);animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.wanote{text-align:center;font-size:.73rem;color:var(--muted);margin-top:10px}
+.empty{text-align:center;padding:50px 20px}
+.empty>span{font-size:3.4rem;display:block;margin-bottom:10px}
+.empty h3{font-family:'Baloo 2';font-size:1.15rem}
+.empty p{color:var(--muted);font-size:.88rem;margin:6px 0 18px}
+.done{text-align:center;padding:34px 0 10px}
+.done .art{font-size:5rem;display:block;margin:0 auto 14px}
+.done h2{font-family:'Baloo 2';font-size:1.6rem}
+.done>p{color:#7A6A74;margin:8px auto 20px;max-width:34ch}
+.done-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.receipt{display:none;background:#fff;border-radius:20px;padding:16px;text-align:left;margin:18px 0 0;box-shadow:0 6px 18px rgba(51,38,46,.06)}
+.receipt.open{display:block;animation:fadeUp .3s}
+.rhead{font-weight:800;margin-bottom:10px}
+.rnote{margin-top:10px;font-size:.8rem;color:var(--muted)}
+#bnav{position:fixed;bottom:0;left:0;right:0;z-index:60;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+#bnav .in{max-width:600px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.nitem{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 0 8px;color:#B3A6AD;font-size:.64rem;font-weight:700;text-decoration:none;position:relative;transition:.2s}
+.nitem .msr{font-size:1.45rem}
+.nitem.on{color:var(--pink)}
+.nitem.on::after{content:'';position:absolute;top:0;width:26px;height:3px;border-radius:0 0 6px 6px;background:var(--pink)}
+.navbadge{position:absolute;top:4px;right:calc(50% - 24px);min-width:17px;height:17px;border-radius:99px;background:var(--pink);color:#fff;font-size:.6rem;display:grid;place-items:center;padding:0 4px;font-weight:800}
+#fab{position:fixed;right:16px;bottom:calc(76px + env(safe-area-inset-bottom));z-index:59;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--pink),var(--pink2));color:#fff;border:none;border-radius:99px;padding:13px 18px;font-weight:800;box-shadow:0 12px 28px rgba(255,111,156,.5);cursor:pointer;transition:transform .2s}
+#fab:active{transform:scale(.94)}
+#fab .count{background:#fff;color:var(--pink);border-radius:99px;min-width:22px;height:22px;display:grid;place-items:center;font-size:.78rem;padding:0 6px}
+#fab .total{font-size:.8rem}
+#fab.pop{animation:pop .4s}
+@keyframes pop{40%{transform:scale(1.12)}}
+#fab.hide{display:none}
+#toast{position:fixed;left:50%;bottom:calc(88px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);background:#33262E;color:#fff;padding:11px 20px;border-radius:99px;font-size:.83rem;font-weight:700;opacity:0;pointer-events:none;transition:.3s;z-index:80;white-space:nowrap;max-width:92vw;overflow:hidden;text-overflow:ellipsis}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+#lightbox{position:fixed;inset:0;background:rgba(30,18,26,.94);z-index:100;display:none;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+#lightbox.open{display:flex;animation:fade .2s}
+@keyframes fade{from{opacity:0}}
+#lbImg{max-width:92%;max-height:72vh;border-radius:18px;background:#fff;object-fit:contain;transition:transform .25s;cursor:zoom-in}
+#lbImg.zoom{cursor:zoom-out}
+#lbCap{color:#fff;margin-top:14px;font-weight:700;text-align:center}
+#lbHint{color:rgba(255,255,255,.55);font-size:.72rem;margin-top:5px;text-align:center}
+#lbClose{position:absolute;top:18px;right:18px;width:42px;height:42px;border-radius:50%;border:none;background:rgba(255,255,255,.16);color:#fff;display:grid;place-items:center;cursor:pointer}
+.admin-card{background:#fff;border-radius:20px;padding:20px;box-shadow:0 6px 18px rgba(51,38,46,.06);margin-top:10px}
+.admin-card h3{font-family:'Baloo 2';margin-bottom:8px}
+.admin-card p{font-size:.88rem;color:#7A6A74;margin-bottom:8px}
+.admin-card li{margin:6px 0;list-style:none;font-size:.86rem}
+.admin-card code{background:var(--pinkbg);border-radius:6px;padding:1px 6px;font-size:.78em}
+</style>
+</head>
+<body>
+
+<div class="marquee"><span>🌙 Moon · Tienda coreana &nbsp;•&nbsp; 🇰 100% originales &nbsp;•&nbsp; 💬 Pedidos por WhatsApp &nbsp;•&nbsp; 🤝 Entrega presencial &nbsp;•&nbsp; 🍜 Ramen, mochis, bebidas y más &nbsp;•&nbsp; 🌙 Moon · Tienda coreana &nbsp;•&nbsp; 🇰🇷 100% originales &nbsp;•&nbsp; 💬 Pedidos por WhatsApp &nbsp;•&nbsp; 🤝 Entrega presencial &nbsp;•&nbsp; 🍜 Ramen, mochis, bebidas y más &nbsp;•&nbsp;</span></div>
+
+<header id="topbar">
+  <div class="wrap topbar-in">
+    <a class="logo" href="#/"><span class="logo-badge">🌙</span><span><b>Moon</b><small>K-SNACKS · BEBIDAS · DULCES</small></span></a>
+    <button class="iconbtn" data-goto-search aria-label="Buscar"><span class="msr">search</span></button>
+  </div>
+</header>
+
+<main>
+<section class="view" id="view-home">
+  <div class="wrap">
+    <div class="hero">
+      <span class="deco d1">🌙</span><span class="deco d2">🍓</span><span class="deco d3">🍜</span>
+      <div class="hello">¡Annyeonghaseyo! 👋</div>
+      <h1>El sabor de Corea,<br>directo a tus manos 🇰</h1>
+      <p>Ramen Buldak, mochis, malteadas y snacks 100% originales. Elige tus favoritos y pide fácil por WhatsApp.</p>
+      <div class="hero-btns">
+        <a class="btn btn-pink" href="#/productos">Ver productos <span class="msr">arrow_forward</span></a>
+        <a class="btn btn-ghost" href="#/categorias">Categorías</a>
+      </div>
+      <div class="hero-imgs" id="heroImgs"></div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-head"><h2>Explora por categoría 🗂️</h2><a href="#/categorias">Ver todas <span class="msr" style="font-size:1rem">arrow_forward</span></a></div>
+      <div class="cats" id="homeCats"></div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-head"><h2>Los más deseados 💗</h2><a href="#/productos?cat=populares">Ver todos <span class="msr" style="font-size:1rem">arrow_forward</span></a></div>
+      <div class="hscroll" id="homeFeat"></div>
+    </div>
+
+    <div class="promo">
+      <h3>🍡 ¿Ya probaste nuestros mochis?</h3>
+      <p>Suavecitos, rellenos y deliciosos: de cacao, durazno, mora azul y vainilla. ¡Te van a encantar!</p>
+      <a class="btn" href="#/productos?cat=mochis">Ver mochis</a>
+      <span class="big-e">🍡</span>
+    </div>
+
+    <div class="sec">
+      <div class="sec-head"><h2>Recién llegados 🆕</h2><a href="#/productos?cat=nuevos">Ver todos <span class="msr" style="font-size:1rem">arrow_forward</span></a></div>
+      <div class="hscroll" id="homeNew"></div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-head"><h2>¿Cómo comprar? 📲</h2></div>
+      <div class="steps">
+        <div class="step"><span class="e">🛍️</span><p>1 · Elige tus productos</p></div>
+        <div class="step"><span class="e">🧺</span><p>2 · Revisa tu carrito</p></div>
+        <div class="step"><span class="e">💬</span><p>3 · Envía tu pedido por WhatsApp</p></div>
+        <div class="step"><span class="e">🤝</span><p>4 · Coordina tu entrega presencial</p></div>
+      </div>
+    </div>
+
+    <footer class="foot">
+      <a class="logo" href="#/"><span class="logo-badge">🌙</span><span><b>Moon</b></span></a>
+      <p>El sabor de Corea, directo a tus manos 🇰🇷</p>
+      <div class="wa-chip">💬 Pedidos por WhatsApp · 📱 767 102 2442</div>
+      <p class="tiny">Sin pagos en línea · La entrega se coordina personalmente<br>© 2026 Moon · Hecho con 💗 y snacks coreanos</p>
+    </footer>
+  </div>
+</section>
+
+<section class="view" id="view-productos">
+  <div class="wrap">
+    <div class="page-head"><h1>Explorar productos 🛍️</h1></div>
+    <div class="toolbar">
+      <div class="searchbox"><span class="msr">search</span><input id="searchInput" type="search" placeholder="Buscar snacks, dulces, bebidas…" autocomplete="off"></div>
+      <div class="chips" id="chips"></div>
+    </div>
+    <p class="count-lbl" id="gridCount"></p>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="view" id="view-categorias">
+  <div class="wrap">
+    <div class="page-head"><h1>Categorías 🗂️</h1><p class="sub">Encuentra tu antojo coreano favorito</p></div>
+    <div class="catgrid" id="catGrid"></div>
+  </div>
+</section>
+
+<section class="view" id="view-producto"></section>
+
+<section class="view" id="view-carrito">
+  <div class="wrap">
+    <div class="dtop"><button class="iconbtn" data-goto="#/productos"><span class="msr">arrow_back</span></button><b>Carrito 🧺</b></div>
+    <div id="cartItems"></div>
+    <div id="cartForm" style="display:none">
+      <div class="summary">
+        <div class="srow"><span>Subtotal</span><span id="sumSub">MXN $0.00</span></div>
+        <div class="srow total"><span>Total</span><span id="sumTotal">MXN $0.00</span></div>
+        <div class="field" id="fName"><label>Tu nombre *</label><input id="custName" type="text" placeholder="¿A nombre de quién va el pedido?" maxlength="60"></div>
+        <div class="field"><label>¿Alguna nota para tu pedido? (opcional)</label><textarea id="custNote" rows="2" placeholder="Ej. Quiero recogerlo por la tarde · Mi malteada de fresa 🍓" maxlength="180"></textarea></div>
+        <button class="btn btn-wa" id="btnSend" style="margin-top:16px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.83 14.12c-.25.7-1.45 1.33-2.02 1.38-.55.05-1.06.26-3.55-.74-3-1.2-4.93-4.26-5.08-4.46-.15-.2-1.22-1.62-1.22-3.09 0-1.47.77-2.19 1.05-2.49.27-.3.6-.37.8-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.25.6.85 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.6.17.3.77 1.27 1.66 2.06 1.14 1.02 2.1 1.33 2.4 1.48.3.15.47.13.65-.08.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.27.1 1.74.82 2.04.97.3.15.5.22.57.35.08.12.08.72-.17 1.42z"/></svg>
+          Enviar pedido por WhatsApp
+        </button>
+        <p class="wanote">🔒 Sin pagos en línea. Confirmamos disponibilidad y entrega por WhatsApp.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="view" id="view-listo">
+  <div class="wrap done">
+    <span class="art">🎉</span>
+    <h2>¡Pedido preparado! 🎉</h2>
+    <p>Tu pedido está listo para enviarse por WhatsApp. Si no se abrió automáticamente, toca el botón verde.</p>
+    <a class="btn btn-wa" id="waResend" href="#" target="_blank" rel="noopener" style="max-width:360px;margin:0 auto">Abrir WhatsApp con mi pedido 🟢</a>
+    <div class="done-btns">
+      <a class="btn btn-pink" href="#/"><span class="msr">storefront</span> Volver a la tienda</a>
+      <button class="btn btn-ghost" id="btnReceipt"><span class="msr">receipt_long</span> Ver detalles del pedido</button>
+    </div>
+    <div class="receipt" id="receipt"></div>
+  </div>
+</section>
+
+<section class="view" id="view-admin">
+  <div class="wrap">
+    <div class="dtop"><button class="iconbtn" data-goto="#/"><span class="msr">arrow_back</span></button><b>Panel administrativo 🚧</b></div>
+    <div class="admin-card">
+      <h3>En construcción 👷</h3>
+      <p>La arquitectura ya está lista: el catálogo vive en <code>localStorage</code> y existe la API <code>MoonAdmin</code> (consola del navegador) para añadir, editar y eliminar productos, cambiar precios, fotos, destacados y el número de WhatsApp.</p>
+      <ul>
+        <li>➕ <code>MoonAdmin.add({...})</code></li>
+        <li>✏️ <code>MoonAdmin.update('s1',{price:85})</code></li>
+        <li>🖼️ <code>MoonAdmin.update('s1',{img:'URL_DE_TU_FOTO'})</code></li>
+        <li>🗑️ <code>MoonAdmin.remove('s1')</code></li>
+        <li>📱 <code>MoonAdmin.setWhatsApp('527671022442')</code></li>
+      </ul>
+      <p class="tiny">Ruta <code>#/admin</code> · El panel visual se conectará aquí sin tocar la tienda.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<nav id="bnav">
+  <div class="in">
+    <a class="nitem" href="#/" data-nav="home"><span class="msr">home</span>Inicio</a>
+    <a class="nitem" href="#/productos" data-nav="productos"><span class="msr">grid_view</span>Productos</a>
+    <a class="nitem" href="#/categorias" data-nav="categorias"><span class="msr">category</span>Categorías</a>
+    <a class="nitem" href="#/carrito" data-nav="carrito"><span class="msr">shopping_bag</span>Carrito<span class="navbadge" id="navCartBadge" style="display:none">0</span></a>
+  </div>
+</nav>
+
+<button id="fab" aria-label="Ver carrito"><span class="msr">shopping_bag</span><span class="count" id="fabCount">0</span><span class="total" id="fabTotal"></span></button>
+<div id="toast"></div>
+
+<div id="lightbox" role="dialog" aria-modal="true">
+  <button id="lbClose" aria-label="Cerrar"><span class="msr">close</span></button>
+  <img id="lbImg" alt="">
+  <div id="lbCap"></div>
+  <div id="lbHint">Toca la imagen para ampliar / reducir · toca fuera para cerrar</div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════════
+   ⚙️ CONFIGURACIÓN — EDITA AQUÍ
+   📱 WhatsApp: 767 102 2442 → 527671022442
+   🖼️ Para cambiar una foto: MoonAdmin.update('s1',{img:'URL'})
+══════════════════════════════════════════════════════════ */
+const STORE = {
+  name: 'Moon',
+  slogan: 'El sabor de Corea, directo a tus manos 🇰',
+  whatsapp: localStorage.getItem('moon_wa') || '527671022442',
+  displayPhone: '767 102 2442'
+};
+
+const CATEGORIES = [
+  { id:'salados',  emoji:'🍜', name:'Bocadillos salados' },
+  { id:'bebidas',  emoji:'🥤', name:'Bebidas coreanas' },
+  { id:'galletas', emoji:'🍪', name:'Galletas y aperitivos' },
+  { id:'mochis',   emoji:'🍡', name:'Mochis' }
+];
+
+/* ── CATÁLOGO REAL (36 productos con fotos reales) ───────── */
+const PRODUCTS = [
+  /* 🍜 Bocadillos salados */
+  { id:'s1',  name:'Ramen de pollo picante (Big Bowl)', size:'Buldak · 108 g', price:80, cat:'salados', tags:['picante'], featured:false, img:'https://i.ibb.co/zHmgxZHZ/IMG-7186.jpg', emoji:'🍜', desc:'El clásico Buldak Hot Chicken en formato Big Bowl 🔥 Picante intenso y adictivo.' },
+  { id:'s2',  name:'Ramen queso (vaso 70 g)', size:'Buldak Cheese', price:60, cat:'salados', tags:['picante'], featured:true, img:'https://i.ibb.co/bgTrVQCH/IMG-7189.jpg', emoji:'🧀', desc:'Buldak Cheese: el picante cremoso con queso fundido 🧀 Favorito de todos.' },
+  { id:'s3',  name:'Ramen carbonara (vaso grande 105 g)', size:'Buldak Carbo', price:80, cat:'salados', tags:[], featured:false, img:'https://i.ibb.co/j9NVbPss/IMG-7187.jpg', emoji:'🍜', desc:'Buldak Carbo en vaso grande: cremoso, dulcecito y con su toque picante 💗' },
+  { id:'s4',  name:'Ramen carbonara (vaso 80 g)', size:'Buldak Carbo', price:60, cat:'salados', tags:[], featured:false, img:'https://i.ibb.co/jPXmpF1S/IMG-7190.jpg', emoji:'🍜', desc:'La versión clásica del Buldak Carbo 🍝 Cremoso y reconfortante.' },
+  { id:'s5',  name:'Ramen queso (vaso grande 105 g)', size:'Buldak Cheese', price:80, cat:'salados', tags:['picante'], featured:false, img:'https://i.ibb.co/d4VWSw5b/IMG-7188.jpg', emoji:'🧀', desc:'Buldak Cheese en tamaño grande 🔥🧀 Para los que quieren más.' },
+  { id:'s6',  name:'Yopokki sabor carbonara (120 g)', size:'Yopokki', price:80, cat:'salados', tags:[], featured:false, img:'https://i.ibb.co/gF9242Hd/IMG-7192.jpg', emoji:'🍥', desc:'Tteokbokki cremoso estilo carbonara 🍥 Listo en 3 minutos de microondas.' },
+  { id:'s7',  name:'Ramen de pollo picante (vaso 70 g)', size:'Buldak', price:60, cat:'salados', tags:['picante','popular'], featured:true, img:'https://i.ibb.co/h1X31mmv/IMG-7191.jpg', emoji:'🍜', desc:'El Buldak original en vaso 🔥 El reto picante más famoso de Corea.' },
+  { id:'s8',  name:'Yopokki sabor arroz picante (120 g)', size:'Yopokki Hot & Spicy', price:80, cat:'salados', tags:['picante'], featured:false, img:'https://i.ibb.co/VcfBgqTT/IMG-7193.jpg', emoji:'🌶️', desc:'Pastelitos de arroz en salsa gochujang 🌶️ Street food coreano en tu casa.' },
+  { id:'s9',  name:'Yopokki sabor kimchi (115 g)', size:'Yopokki', price:80, cat:'salados', tags:['picante'], featured:false, img:'https://i.ibb.co/d0WChT2Q/IMG-7194.jpg', emoji:'🥬', desc:'Tteokbokki con el sabor auténtico del kimchi 🥬 Picantito y delicioso.' },
+  { id:'s10', name:'Ramen carbonara en bolsa (130 g)', size:'Buldak Carbo', price:60, cat:'salados', tags:[], featured:false, img:'https://i.ibb.co/V0tQHLDh/IMG-7201.jpg', emoji:'🍜', desc:'Buldak Carbo en bolsa para preparar en sartén 🍳 Como en Corea.' },
+  { id:'s11', name:'Ramen carbonara extra queso (Cream Carbonara)', size:'Buldak · 140 g', price:60, cat:'salados', tags:[], featured:false, img:'https://i.ibb.co/7BBtqbn/IMG-7202.jpg', emoji:'🧀', desc:'Buldak Cream Carbonara: extra cremoso, extra queso 🧀' },
+  /* 🥤 Bebidas coreanas */
+  { id:'b1', name:'Malteada Binggrae (200 ml)', size:'Sabores: fresa 🍓, melón 🍈 y plátano 🍌', price:55, cat:'bebidas', tags:['popular'], featured:true, img:'https://i.ibb.co/YvgwKMn/IMG-7195.jpg', emoji:'🥤', desc:'La leche saborizada favorita de Corea 🇰🇷 Elige tu sabor en la nota del pedido.' },
+  { id:'b2', name:'Malteada de taro Binggrae (200 ml)', size:'Binggrae UHT', price:55, cat:'bebidas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/chRxYFYn/IMG-7196.jpg', emoji:'🍠', desc:'Cremosa leche sabor taro 💜 Dulce, suave y diferente.' },
+  { id:'b3', name:'Milkis original (250 ml)', size:'Lotte', price:55, cat:'bebidas', tags:['popular'], featured:true, img:'https://i.ibb.co/BKZj5VL6/IMG-7198.jpg', emoji:'🥛', desc:'Refresco de leche con yogurt 🫧 Burbujeante, cremoso y único.' },
+  { id:'b4', name:'Milkis banana (250 ml)', size:'Lotte', price:55, cat:'bebidas', tags:[], featured:false, img:'https://i.ibb.co/DHJnzn3X/IMG-7197.jpg', emoji:'🍌', desc:'Milkis con sabor a plátano 🍌 La cream soda coreana más famosa.' },
+  { id:'b5', name:'Mogu Mogu con pedazos de fruta (320 ml)', size:'Sabores: lichi, frambuesa, fresa, piña, mango y durazno', price:60, cat:'bebidas', tags:[], featured:false, img:'https://i.ibb.co/NdHgZgNm/IMG-7199.jpg', emoji:'🧃', desc:'Jugo con nata de coco y trocitos de fruta reales 🍓 ¡Se mastica y se bebe!' },
+  { id:'b6', name:'Soju (360 ml)', size:'Sabores: uva 🍇, toronja, durazno, blueberry y yuja', price:130, cat:'bebidas', tags:['mas18'], featured:false, img:'https://i.ibb.co/fY78MzjT/IMG-7200.jpg', emoji:'🍶', desc:'La bebida clásica de Corea 🍶 🔞 Producto solo para mayores de edad.' },
+  { id:'b7', name:'Té de sandía (Cantabile · 230 ml)', size:'Cantabile Ade', price:55, cat:'bebidas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/mVPCYrYY/IMG-7211.jpg', emoji:'🍉', desc:'Ade de sandía súper refrescante 🍉 Dulce y fresquito.' },
+  { id:'b8', name:'Té de limón azul (Cantabile · 230 ml)', size:'Cantabile Blue Lemon Ade', price:55, cat:'bebidas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/rRJvRG6d/IMG-7210.jpg', emoji:'🍋', desc:'Blue Lemon Ade 💙 Cítrico, dulce y hermoso.' },
+  { id:'b9', name:'Té de uva verde (Cantabile · 230 ml)', size:'Cantabile Green Grape', price:55, cat:'bebidas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/mrxPn4Pv/IMG-7212.jpg', emoji:'🍇', desc:'Green Grape Ade 🍇 El sabor de las uvas verdes coreanas.' },
+  /* 🍪 Galletas y aperitivos */
+  { id:'g1',  name:'Pocky sabor matcha (30 g)', size:'Sablex', price:50, cat:'galletas', tags:[], featured:false, img:'https://i.ibb.co/HTxR77tZ/IMG-7204.jpg', emoji:'🍵', desc:'Palitos de galleta cubiertos de crema de té verde 🍵' },
+  { id:'g2',  name:'Pocky sabor mora azul (30 g)', size:'Sablex', price:50, cat:'galletas', tags:[], featured:false, img:'https://i.ibb.co/4ZHHPx5j/IMG-7205.jpg', emoji:'🫐', desc:'Con trozos reales de mora azul 🫐 Dulce y frutal.' },
+  { id:'g3',  name:'Pocky sabor melón (30 g)', size:'Sablex', price:50, cat:'galletas', tags:[], featured:false, img:'https://i.ibb.co/ymDMgqkT/IMG-7203.jpg', emoji:'🍈', desc:'Cobertura sabor melón con trocitos de fruta 🍈' },
+  { id:'g4',  name:'Pocky caramelo con almendra (30 g)', size:'Sablex', price:50, cat:'galletas', tags:[], featured:false, img:'https://i.ibb.co/rG9bWXtM/IMG-7207.jpg', emoji:'🍮', desc:'Caramelo cremoso y trozos de almendra 🌰 Irresistible.' },
+  { id:'g5',  name:'Pocky sabor chocolate (30 g)', size:'Sablex', price:50, cat:'galletas', tags:[], featured:false, img:'https://i.ibb.co/5gw5wRqP/IMG-7208.jpg', emoji:'🍫', desc:'Con chocolate cremoso 🍫 El de siempre, pero coreano.' },
+  { id:'g6',  name:'Pocky sabor oreo (30 g)', size:'Sablex', price:50, cat:'galletas', tags:[], featured:false, img:'https://i.ibb.co/ycd2XSNB/IMG-7209.jpg', emoji:'🍪', desc:'Crema con trozos de galleta estilo oreo 🍪' },
+  { id:'g12', name:'Pocky sabor fresa (30 g)', size:'Sablex', price:50, cat:'galletas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/hJ5xR7YR/IMG-7206.jpg', emoji:'🍓', desc:'Cobertura cremosa de fresa 🍓 Dulce y rosadito.' },
+  { id:'g7',  name:'Pocky grande de oreo (Pepero White Cookie · 32 g)', size:'Lotte Pepero', price:60, cat:'galletas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/GfxJ8Yj0/IMG-7217.jpg', emoji:'🍪', desc:'Pepero blanco con trozos de galleta de chocolate ✨' },
+  { id:'g8',  name:'Pocky grande de galleta (Pepero Choco Cookie · 32 g)', size:'Lotte Pepero', price:60, cat:'galletas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/3yBH5xx6/IMG-7218.jpg', emoji:'🍫', desc:'Pepero con cobertura de chocolate y trozos de galleta 🍪' },
+  { id:'g9',  name:'Pocky grande de chocolate (Pepero Original · 47 g)', size:'Lotte Pepero', price:60, cat:'galletas', tags:['popular','nuevo'], featured:true, img:'https://i.ibb.co/Kchkx3rN/IMG-7219.jpg', emoji:'🍫', desc:'El Pepero clásico de toda la vida 🍫 El No.1 de Corea.' },
+  { id:'g10', name:'Pocky grande de almendra (Pepero Almond · 32 g)', size:'Lotte Pepero', price:60, cat:'galletas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/RTp243zw/IMG-7220.jpg', emoji:'🌰', desc:'Pepero con almendra crujiente 🌰 Crujido garantizado.' },
+  { id:'g11', name:'Caja de Choco Pie (6 piezas)', size:'Lotte · 6 × 28 g', price:100, cat:'galletas', tags:['popular'], featured:true, img:'https://i.ibb.co/ksY2GkMc/IMG-7221.jpg', emoji:'🥧', desc:'El clásico Lotte Choco Pie: bizcocho suavecito, malvavisco y chocolate 💗' },
+  /* 🍡 Mochis */
+  { id:'m1', name:'Mochis de cacao (8 pzas)', size:'Royal Family · 80 g', price:100, cat:'mochis', tags:['popular'], featured:true, img:'https://i.ibb.co/Y7bFHrm1/IMG-7214.jpg', emoji:'🍫', desc:'Suaves mochis estilo taro rellenos de crema de cacao 💜' },
+  { id:'m2', name:'Mochis de durazno (132 g)', size:'Royal Family Fruit Mochi', price:110, cat:'mochis', tags:[], featured:true, img:'https://i.ibb.co/TMKkwMJs/IMG-7213.jpg', emoji:'🍑', desc:'Fruit Mochi de durazno con centro jugoso 🍑 Suavecitos y frescos.' },
+  { id:'m3', name:'Mochis de mora azul (152 g)', size:'Royal Family Fruit Mochi', price:100, cat:'mochis', tags:[], featured:false, img:'https://i.ibb.co/h3YZFQM/IMG-7215.jpg', emoji:'🫐', desc:'Fruit Mochi de blueberry con relleno líquido 🫐' },
+  { id:'m4', name:'Mochis de vainilla (8 pzas)', size:'Royal Family · 120 g', price:100, cat:'mochis', tags:[], featured:false, img:'https://i.ibb.co/xK2GcJBn/IMG-7216.jpg', emoji:'🍦', desc:'Mochi relleno de crema de vainilla 🍦 8 piezas individuales.' }
+];
+
+/* ══════════ 🛠️ BASE PARA FUTURO PANEL ADMIN ══════════ */
+const CATKEY = 'moon_catalog_v3';
+function getCatalog(){ try{ const r = localStorage.getItem(CATKEY); if(r){ const l = JSON.parse(r); if(Array.isArray(l) && l.length) return l; } }catch(e){} return PRODUCTS; }
+const CATALOG = getCatalog();
+window.MoonAdmin = {
+  list(){ return getCatalog(); },
+  save(l){ localStorage.setItem(CATKEY, JSON.stringify(l)); location.reload(); },
+  add(p){ const l = getCatalog(); p.id = p.id || ('p' + Date.now()); l.push(p); this.save(l); },
+  update(id, patch){ this.save(getCatalog().map(p => p.id === id ? {...p, ...patch} : p)); },
+  remove(id){ this.save(getCatalog().filter(p => p.id !== id)); },
+  setWhatsApp(n){ localStorage.setItem('moon_wa', String(n).replace(/\D/g,'')); location.reload(); }
+};
+
+/* ══════════ ESTADO Y UTILIDADES ══════════ */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+const fmt = n => 'MXN $' + n.toFixed(2);
+const catById = id => CATEGORIES.find(c => c.id === id);
+const state = {
+  cart: (()=>{ try{ return JSON.parse(localStorage.getItem('moon_cart')) || {}; }catch(e){ return {}; } })(),
+  customer: (()=>{ try{ return JSON.parse(localStorage.getItem('moon_customer')) || {name:'',note:''}; }catch(e){ return {name:'',note:''}; } })(),
+  cat:'all', q:'', detailQty:1, detailP:null, lastOrder:null
+};
+const persistCart = () => localStorage.setItem('moon_cart', JSON.stringify(state.cart));
+const items = () => Object.entries(state.cart).map(([id,qty]) => { const p = CATALOG.find(x => x.id === id); return p ? {...p, qty} : null; }).filter(Boolean);
+const cartCount = () => items().reduce((a,i)=>a+i.qty,0);
+const cartTotal = () => items().reduce((a,i)=>a+i.qty*i.price,0);
+
+function imgFail(el){ const d = document.createElement('div'); d.className = el.className.includes('ci-img') ? 'ci-img ph' : 'ph'; d.innerHTML = '<span>' + (el.dataset.emoji||'🛍️') + '</span>'; el.replaceWith(d); }
+function pimg(p, cls=''){ return p.img
+  ? `<img class="${cls}" src="${p.img}" alt="${esc(p.name)}" loading="lazy" data-emoji="${p.emoji||'🛍️'}" onerror="imgFail(this)">`
+  : `<div class="${cls} ph"><span>${p.emoji||'🛍️'}</span></div>`; }
+function badges(p){ let s='';
+  if(p.tags.includes('nuevo'))   s += '<span class="badge b-new">Nuevo</span>';
+  if(p.tags.includes('popular')) s += '<span class="badge b-pop">Popular</span>';
+  if(p.tags.includes('picante')) s += '<span class="badge b-hot"><span class="msr">local_fire_department</span>Picante</span>';
+  if(p.tags.includes('mas18'))   s += '<span class="badge b-18">🔞 +18</span>';
+  return s; }
+function cardHTML(p){ return `
+  <article class="pcard" data-open="${p.id}">
+    <div class="pcard-img">
+      ${pimg(p)}
+      <div class="badges">${badges(p)}</div>
+      ${p.img ? `<button class="zoomchip" data-zoom="${p.img}" data-cap="${esc(p.name)}" aria-label="Ampliar imagen"><span class="msr">zoom_in</span></button>` : ''}
+    </div>
+    <div class="pcard-b">
+      <h3>${esc(p.name)}</h3>
+      <span class="size">${p.size ? esc(p.size) : ''}</span>
+      <div class="row"><b>${fmt(p.price)}</b><button class="addbtn" data-add="${p.id}" aria-label="Agregar al carrito"><span class="msr">add_shopping_cart</span></button></div>
+    </div>
+  </article>`; }
+
+/* ══════════ RENDERIZADO ══════════ */
+function renderHome(){
+  $('#heroImgs').innerHTML = ['s7','b1','m2','g11'].map(id => { const p = CATALOG.find(x=>x.id===id); return p ? pimg(p) : ''; }).join('');
+  $('#homeCats').innerHTML = CATEGORIES.map(c => `<div class="cat" data-gocat="${c.id}"><span class="e">${c.emoji}</span><span class="n">${c.name}</span></div>`).join('');
+  $('#homeFeat').innerHTML = CATALOG.filter(p=>p.featured).map(cardHTML).join('');
+  $('#homeNew').innerHTML  = CATALOG.filter(p=>p.tags.includes('nuevo')).map(cardHTML).join('');
+}
+function renderProducts(){
+  const chips = [{id:'all',emoji:'🛍️',name:'Todos'}, ...CATEGORIES, {id:'populares',emoji:'⭐',name:'Populares'}, {id:'nuevos',emoji:'🆕',name:'Nuevos'}];
+  $('#chips').innerHTML = chips.map(c => `<button class="chip-f ${state.cat===c.id?'on':''}" data-cat="${c.id}">${c.emoji} ${c.name}</button>`).join('');
+  renderGrid();
+}
+function renderGrid(){
+  let list = CATALOG;
+  if(state.cat === 'populares')     list = list.filter(p=>p.tags.includes('popular'));
+  else if(state.cat === 'nuevos')   list = list.filter(p=>p.tags.includes('nuevo'));
+  else if(state.cat !== 'all')      list = list.filter(p=>p.cat===state.cat);
+  if(state.q){ const q = state.q.toLowerCase(); list = list.filter(p => (p.name+' '+(p.desc||'')).toLowerCase().includes(q)); }
+  $('#gridCount').textContent = `Mostrando ${list.length} item${list.length!==1?'s':''}`;
+  $('#grid').innerHTML = list.length ? list.map(cardHTML).join('')
+    : '<div class="empty" style="grid-column:1/-1"><span>🔍</span><h3>Sin resultados</h3><p>Prueba con otra búsqueda o categoría</p></div>';
+}
+function renderCategories(){
+  const extra = [{id:'populares',emoji:'⭐',name:'Populares'},{id:'nuevos',emoji:'🆕',name:'Nuevos'}];
+  $('#catGrid').innerHTML = [...CATEGORIES, ...extra].map(c => {
+    const n = c.id==='populares' ? CATALOG.filter(p=>p.tags.includes('popular')).length
+            : c.id==='nuevos'    ? CATALOG.filter(p=>p.tags.includes('nuevo')).length
+            : CATALOG.filter(p=>p.cat===c.id).length;
+    return `<div class="catcard" data-gocat="${c.id}"><span class="e">${c.emoji}</span><span class="n">${c.name}</span><span class="c">${n} producto${n!==1?'s':''}</span></div>`;
+  }).join('');
+}
+function showDetail(id){
+  const p = CATALOG.find(x=>x.id===id);
+  if(!p){ location.hash = '#/productos'; return; }
+  state.detailP = p; state.detailQty = 1;
+  const c = catById(p.cat);
+  $('#view-producto').innerHTML = `<div class="wrap">
+    <div class="dtop"><button class="iconbtn" data-goto="#/productos"><span class="msr">arrow_back</span></button><b>${esc(p.name)}</b></div>
+    <div class="dimg" ${p.img ? `data-zoom="${p.img}" data-cap="${esc(p.name)}"` : ''}>
+      ${pimg(p)}
+      ${p.img ? '<span class="dzoom-hint"><span class="msr">zoom_in</span> Toca para ampliar</span>' : ''}
+      <div class="badges">${badges(p)}</div>
+    </div>
+    <div class="dchips">
+      <span class="chip ok"><span class="msr">check_circle</span>En stock</span>
+      ${c ? `<span class="chip cat">${c.emoji} ${c.name}</span>` : ''}
+    </div>
+    <h1 class="dname">${esc(p.name)}</h1>
+    <div class="dprice">${fmt(p.price)}${p.size ? ` <small>· ${esc(p.size)}</small>` : ''}</div>
+    <p class="ddesc">${esc(p.desc||'')}</p>
+    <span class="qtylbl">Cantidad</span>
+    <div class="qty">
+      <button data-dq="-1" aria-label="Menos"><span class="msr">remove</span></button>
+      <span id="dqty">1</span>
+      <button data-dq="1" aria-label="Más"><span class="msr">add</span></button>
+    </div>
+    <div class="dbar"><button class="btn btn-pink" style="flex:1" id="daddBtn" data-dadd="${p.id}"><span class="msr">add_shopping_cart</span> Añadir al carrito · ${fmt(p.price)}</button></div>
+  </div>`;
+}
+function changeDetailQty(d){
+  state.detailQty = Math.max(1, state.detailQty + d);
+  const q = $('#dqty'); if(q) q.textContent = state.detailQty;
+  const b = $('#daddBtn'); if(b && state.detailP) b.innerHTML = `<span class="msr">add_shopping_cart</span> Añadir al carrito · ${fmt(state.detailP.price * state.detailQty)}`;
+}
+function cartItemHTML(i){ return `
+  <div class="citem">
+    ${pimg(i, 'ci-img').replace('data-zoom','data-x')}
+    <div class="ci-b">
+      <h4>${esc(i.name)}</h4>
+      <span class="u">${fmt(i.price)} c/u</span>
+      <div class="ci-row">
+        <div class="mini-qty">
+          <button data-cq="${i.id}|-1" aria-label="Menos"><span class="msr">remove</span></button>
+          <b>${i.qty}</b>
+          <button data-cq="${i.id}|1" aria-label="Más"><span class="msr">add</span></button>
+        </div>
+        <span class="ci-sub">${fmt(i.qty*i.price)}</span>
+      </div>
+    </div>
+    <button class="cdel" data-del="${i.id}" aria-label="Eliminar"><span class="msr">close</span></button>
+  </div>`; }
+function renderCart(){
+  const its = items();
+  if(!its.length){
+    $('#cartItems').innerHTML = '<div class="empty"><span>🛒</span><h3>Tu carrito está vacío</h3><p>¡Llénalo de sabor coreano! 🇰🇷</p><a class="btn btn-pink" href="#/productos">Ver productos</a></div>';
+    $('#cartForm').style.display = 'none';
+  } else {
+    $('#cartItems').innerHTML = its.map(cartItemHTML).join('');
+    $('#cartForm').style.display = 'block';
+  }
+  $('#sumSub').textContent = fmt(cartTotal());
+  $('#sumTotal').textContent = fmt(cartTotal());
+  $('#custName').value = state.customer.name;
+  $('#custNote').value = state.customer.note;
+  updateChrome();
+}
+function showDone(){
+  const o = state.lastOrder;
+  if(o){
+    $('#receipt').innerHTML = `<div class="rhead">🧾 Pedido de ${esc(o.name)}</div>` +
+      o.lines.map(l => `<div class="srow"><span>${l.qty} × ${esc(l.name)}</span><span>${fmt(l.sub)}</span></div>`).join('') +
+      `<div class="srow total"><span>Total</span><span>${fmt(o.total)}</span></div>` +
+      (o.note ? `<p class="rnote">📝 ${esc(o.note)}</p>` : '');
+    $('#waResend').href = 'https://wa.me/' + STORE.whatsapp + '?text=' + encodeURIComponent(o.msg);
+  }
+}
+
+/* ══════════ CARRITO / CHECKOUT ══════════ */
+function addToCart(id, qty=1){
+  const p = CATALOG.find(x=>x.id===id);
+  if(!p) return;
+  state.cart[id] = (state.cart[id]||0) + qty;
+  persistCart(); updateChrome(); popFab();
+  toast('🛍️ ' + p.name + ' agregado');
+}
+function changeQty(id, d){
+  state.cart[id] = (state.cart[id]||0) + d;
+  if(state.cart[id] <= 0) delete state.cart[id];
+  persistCart(); renderCart();
+}
+function removeItem(id){ delete state.cart[id]; persistCart(); renderCart(); }
+
+function buildMessage(name, note){
+  const its = items();
+  let msg = `Hola 👋 Soy *${name}*.\nQuiero realizar el siguiente pedido:\n\n🛍️ *PEDIDO*\n`;
+  its.forEach(i => { msg += `• ${i.qty} × ${i.name} — ${fmt(i.qty*i.price)}\n`; });
+  msg += `\n💰 *Total: ${fmt(cartTotal())}*\n`;
+  if(note) msg += `\n📝 *Nota:* ${note}\n`;
+  msg += `\n¿Me pueden confirmar la disponibilidad y decirme cómo puedo recogerlo?`;
+  return msg;
+}
+function checkout(){
+  const name = state.customer.name.trim();
+  const its = items();
+  if(!its.length) return;
+  if(!name){
+    $('#fName').classList.add('err'); $('#custName').focus();
+    setTimeout(()=>$('#fName').classList.remove('err'), 500);
+    toast('✍️ Escribe tu nombre para continuar'); return;
+  }
+  const note = state.customer.note.trim();
+  const msg = buildMessage(name, note);
+  state.lastOrder = { name, note, total: cartTotal(), ts: Date.now(), msg,
+    lines: its.map(i => ({ qty:i.qty, name:i.name, sub:i.qty*i.price })) };
+  localStorage.setItem('moon_lastorder', JSON.stringify(state.lastOrder));
+  window.open('https://wa.me/' + STORE.whatsapp + '?text=' + encodeURIComponent(msg), '_blank');
+  location.hash = '#/listo';
+}
+
+/* ══════════ LIGHTBOX (ampliar imagen) ══════════ */
+const lb = $('#lightbox'), lbImg = $('#lbImg');
+function openLightbox(src, cap){
+  lbImg.classList.remove('zoom'); lbImg.style.transform = '';
+  lbImg.src = src; $('#lbCap').textContent = cap || '';
+  lb.classList.add('open'); document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){ lb.classList.remove('open'); document.body.style.overflow = ''; }
+lbImg.addEventListener('click', e => {
+  e.stopPropagation();
+  if(lbImg.classList.contains('zoom')){ lbImg.classList.remove('zoom'); lbImg.style.transform=''; }
+  else{
+    const r = lbImg.getBoundingClientRect();
+    lbImg.style.transformOrigin = ((e.clientX-r.left)/r.width*100)+'% '+((e.clientY-r.top)/r.height*100)+'%';
+    lbImg.classList.add('zoom'); lbImg.style.transform = 'scale(2.2)';
+  }
+});
+lb.addEventListener('click', e => { if(e.target === lb) closeLightbox(); });
+$('#lbClose').addEventListener('click', closeLightbox);
+
+/* ══════════ UI GLOBAL ══════════ */
+let toastT;
+function toast(m){ const t = $('#toast'); t.textContent = m; t.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(()=>t.classList.remove('show'), 1900); }
+function popFab(){ const f = $('#fab'); f.classList.remove('pop'); void f.offsetWidth; f.classList.add('pop'); }
+function updateChrome(){
+  const n = cartCount(), t = cartTotal();
+  $('#fabCount').textContent = n;
+  $('#fabTotal').textContent = n ? fmt(t) : '';
+  const b = $('#navCartBadge'); b.style.display = n ? 'grid' : 'none'; b.textContent = n;
+  const r = parseRoute().v;
+  const navMap = { home:'home', productos:'productos', producto:'productos', categorias:'categorias', carrito:'carrito' };
+  document.querySelectorAll('.nitem').forEach(a => a.classList.toggle('on', a.dataset.nav === navMap[r]));
+  $('#fab').classList.toggle('hide', r === 'carrito' || r === 'listo' || r === 'admin');
+}
+
+/* ══════════ RUTAS ══════════ */
+function parseRoute(){
+  const h = location.hash || '#/';
+  if(h.startsWith('#/producto/'))  return { v:'producto', id:h.slice(10) };
+  if(h.startsWith('#/productos')){ const q = h.split('?')[1]; return { v:'productos', cat: q ? new URLSearchParams(q).get('cat') : null }; }
+  if(h === '#/categorias') return { v:'categorias' };
+  if(h === '#/carrito')    return { v:'carrito' };
+  if(h === '#/listo')      return { v:'listo' };
+  if(h === '#/admin')      return { v:'admin' };
+  return { v:'home' };
+}
+const VIEWS = ['home','productos','categorias','producto','carrito','listo','admin'];
+function router(){
+  const r = parseRoute();
+  VIEWS.forEach(v => $('#view-'+v).classList.remove('on'));
+  if(r.v === 'producto')        showDetail(r.id);
+  else if(r.v === 'productos'){ if(r.cat) state.cat = r.cat; renderProducts(); }
+  else if(r.v === 'categorias') renderCategories();
+  else if(r.v === 'carrito')    renderCart();
+  else if(r.v === 'listo')      showDone();
+  $('#view-'+r.v).classList.add('on');
+  window.scrollTo({ top:0 });
+  updateChrome();
+}
+function goCat(id){ state.cat = id; location.hash = '#/productos?cat=' + id; }
+
+/* ══════════ EVENTOS ══════════ */
+document.addEventListener('click', e => {
+  let el;
+  if((el = e.target.closest('[data-dq]')))          { changeDetailQty(+el.dataset.dq); return; }
+  if((el = e.target.closest('[data-dadd]')))        { addToCart(el.dataset.dadd, state.detailQty); return; }
+  if((el = e.target.closest('[data-cq]')))          { const [id,d] = el.dataset.cq.split('|'); changeQty(id, +d); return; }
+  if((el = e.target.closest('[data-del]')))         { removeItem(el.dataset.del); toast('Producto eliminado 🗑️'); return; }
+  if((el = e.target.closest('[data-add]')))         { e.stopPropagation(); addToCart(el.dataset.add); return; }
+  if((el = e.target.closest('[data-zoom]')))        { e.stopPropagation(); openLightbox(el.dataset.zoom, el.dataset.cap); return; }
+  if((el = e.target.closest('[data-gocat]')))       { goCat(el.dataset.gocat); return; }
+  if((el = e.target.closest('[data-cat]')))         { state.cat = el.dataset.cat; renderProducts(); return; }
+  if((el = e.target.closest('[data-goto-search]'))){ location.hash = '#/productos'; setTimeout(()=>{ const s = $('#searchInput'); if(s) s.focus(); }, 150); return; }
+  if((el = e.target.closest('[data-goto]')))        { location.hash = el.dataset.goto; return; }
+  if((el = e.target.closest('[data-open]')))        { location.hash = '#/producto/' + el.dataset.open; return; }
+  if((el = e.target.closest('.ci-img')) && el.dataset.zoom === undefined && el.tagName === 'IMG'){ openLightbox(el.src, el.alt); return; }
+  if((el = e.target.closest('.dimg')) && el.tagName === 'DIV' && !e.target.closest('[data-zoom]')){ /* handled by data-zoom */ }
+});
+$('#fab').addEventListener('click', () => location.hash = '#/carrito');
+$('#btnSend').addEventListener('click', checkout);
+$('#btnReceipt').addEventListener('click', () => $('#receipt').classList.toggle('open'));
+$('#searchInput').addEventListener('input', e => { state.q = e.target.value; renderGrid(); });
+$('#custName').addEventListener('input', e => { state.customer.name = e.target.value; localStorage.setItem('moon_customer', JSON.stringify(state.customer)); });
+$('#custNote').addEventListener('input', e => { state.customer.note = e.target.value; localStorage.setItem('moon_customer', JSON.stringify(state.customer)); });
+window.addEventListener('hashchange', router);
+
+/* ══════════ INICIO ══════════ */
+try{ const lo = localStorage.getItem('moon_lastorder'); if(lo) state.lastOrder = JSON.parse(lo); }catch(e){}
+renderHome();
+router();
+</script>
+</body>
+</html>
