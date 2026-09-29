@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#FF6F9C">
 <title>Moon 🌙 · Dulces y Snacks Coreanos</title>
-<meta name="description" content="Moon · El sabor de Corea, directo a tus manos 🇰 Ramen, mochis, bebidas y snacks. Pide por WhatsApp.">
+<meta name="description" content="Moon · El sabor de Corea, directo a tus manos 🇰🇷 Ramen, mochis, bebidas y snacks. Pide por WhatsApp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
@@ -219,7 +220,7 @@ main{padding-bottom:120px}
 </head>
 <body>
 
-<div class="marquee"><span>🌙 Moon · Tienda coreana &nbsp;•&nbsp; 🇰 100% originales &nbsp;•&nbsp; 💬 Pedidos por WhatsApp &nbsp;•&nbsp; 🤝 Entrega presencial &nbsp;•&nbsp; 🍜 Ramen, mochis, bebidas y más &nbsp;•&nbsp; 🌙 Moon · Tienda coreana &nbsp;•&nbsp; 🇰🇷 100% originales &nbsp;•&nbsp; 💬 Pedidos por WhatsApp &nbsp;•&nbsp; 🤝 Entrega presencial &nbsp;•&nbsp; 🍜 Ramen, mochis, bebidas y más &nbsp;•&nbsp;</span></div>
+<div class="marquee"><span>🌙 Moon · Tienda coreana &nbsp;•&nbsp; 🇰🇷 100% originales &nbsp;•&nbsp; 💬 Pedidos por WhatsApp &nbsp;•&nbsp; 🤝 Entrega presencial &nbsp;•&nbsp; 🍜 Ramen, mochis, bebidas y más &nbsp;•&nbsp; 🌙 Moon · Tienda coreana &nbsp;•&nbsp; 🇰🇷 100% originales &nbsp;•&nbsp; 💬 Pedidos por WhatsApp &nbsp;•&nbsp; 🤝 Entrega presencial &nbsp;•&nbsp; 🍜 Ramen, mochis, bebidas y más &nbsp;•&nbsp;</span></div>
 
 <header id="topbar">
   <div class="wrap topbar-in">
@@ -234,7 +235,7 @@ main{padding-bottom:120px}
     <div class="hero">
       <span class="deco d1">🌙</span><span class="deco d2">🍓</span><span class="deco d3">🍜</span>
       <div class="hello">¡Annyeonghaseyo! 👋</div>
-      <h1>El sabor de Corea,<br>directo a tus manos 🇰</h1>
+      <h1>El sabor de Corea,<br>directo a tus manos 🇰🇷</h1>
       <p>Ramen Buldak, mochis, malteadas y snacks 100% originales. Elige tus favoritos y pide fácil por WhatsApp.</p>
       <div class="hero-btns">
         <a class="btn btn-pink" href="#/productos">Ver productos <span class="msr">arrow_forward</span></a>
@@ -378,14 +379,9 @@ main{padding-bottom:120px}
 </div>
 
 <script>
-/* ══════════════════════════════════════════════════════════
-   ⚙️ CONFIGURACIÓN — EDITA AQUÍ
-   📱 WhatsApp: 767 102 2442 → 527671022442
-   🖼️ Para cambiar una foto: MoonAdmin.update('s1',{img:'URL'})
-══════════════════════════════════════════════════════════ */
 const STORE = {
   name: 'Moon',
-  slogan: 'El sabor de Corea, directo a tus manos 🇰',
+  slogan: 'El sabor de Corea, directo a tus manos 🇰🇷',
   whatsapp: localStorage.getItem('moon_wa') || '527671022442',
   displayPhone: '767 102 2442'
 };
@@ -394,12 +390,13 @@ const CATEGORIES = [
   { id:'salados',  emoji:'🍜', name:'Bocadillos salados' },
   { id:'bebidas',  emoji:'🥤', name:'Bebidas coreanas' },
   { id:'galletas', emoji:'🍪', name:'Galletas y aperitivos' },
-  { id:'mochis',   emoji:'🍡', name:'Mochis' }
+  { id:'mochis',   emoji:'🍡', name:'Mochis' },
+  { id:'dulces',   emoji:'🍬', name:'Dulces y Gomitas' },
+  { id:'papas',    emoji:'🥔', name:'Papas y botanas' }
 ];
 
-/* ── CATÁLOGO REAL (36 productos con fotos reales) ───────── */
 const PRODUCTS = [
-  /* 🍜 Bocadillos salados */
+  // 🍜 Bocadillos salados - ANTERIORES
   { id:'s1',  name:'Ramen de pollo picante (Big Bowl)', size:'Buldak · 108 g', price:80, cat:'salados', tags:['picante'], featured:false, img:'https://i.ibb.co/zHmgxZHZ/IMG-7186.jpg', emoji:'🍜', desc:'El clásico Buldak Hot Chicken en formato Big Bowl 🔥 Picante intenso y adictivo.' },
   { id:'s2',  name:'Ramen queso (vaso 70 g)', size:'Buldak Cheese', price:60, cat:'salados', tags:['picante'], featured:true, img:'https://i.ibb.co/bgTrVQCH/IMG-7189.jpg', emoji:'🧀', desc:'Buldak Cheese: el picante cremoso con queso fundido 🧀 Favorito de todos.' },
   { id:'s3',  name:'Ramen carbonara (vaso grande 105 g)', size:'Buldak Carbo', price:80, cat:'salados', tags:[], featured:false, img:'https://i.ibb.co/j9NVbPss/IMG-7187.jpg', emoji:'🍜', desc:'Buldak Carbo en vaso grande: cremoso, dulcecito y con su toque picante 💗' },
@@ -411,17 +408,43 @@ const PRODUCTS = [
   { id:'s9',  name:'Yopokki sabor kimchi (115 g)', size:'Yopokki', price:80, cat:'salados', tags:['picante'], featured:false, img:'https://i.ibb.co/d0WChT2Q/IMG-7194.jpg', emoji:'🥬', desc:'Tteokbokki con el sabor auténtico del kimchi 🥬 Picantito y delicioso.' },
   { id:'s10', name:'Ramen carbonara en bolsa (130 g)', size:'Buldak Carbo', price:60, cat:'salados', tags:[], featured:false, img:'https://i.ibb.co/V0tQHLDh/IMG-7201.jpg', emoji:'🍜', desc:'Buldak Carbo en bolsa para preparar en sartén 🍳 Como en Corea.' },
   { id:'s11', name:'Ramen carbonara extra queso (Cream Carbonara)', size:'Buldak · 140 g', price:60, cat:'salados', tags:[], featured:false, img:'https://i.ibb.co/7BBtqbn/IMG-7202.jpg', emoji:'🧀', desc:'Buldak Cream Carbonara: extra cremoso, extra queso 🧀' },
-  /* 🥤 Bebidas coreanas */
+  
+  // 🍜 Bocadillos salados - NUEVOS
+  { id:'s12', name:'Ramen Jin $60', size:'Ottogi Jin Ramen · $60', price:60, cat:'salados', tags:['nuevo'], featured:true, img:'https://i.ibb.co/NcwPy6Q/ramen-jin-60.jpg', emoji:'🍜', desc:'Ramen Jin de Ottogi 🍜' },
+  { id:'s13', name:'Yopokki sabor Jjajang', size:'Yopokki · $80', price:80, cat:'salados', tags:['nuevo'], featured:false, img:'https://i.ibb.co/b5LhLg9r/yopokki-jjajang.jpg', emoji:'🍥', desc:'Tteokbokki con salsa negra jjajang 🖤 Sabor auténtico coreano.' },
+  { id:'s14', name:'Yopokki sabor queso', size:'Yopokki · $80', price:80, cat:'salados', tags:['nuevo'], featured:false, img:'https://i.ibb.co/RkjnyFZ6/yopokki-queso.jpg', emoji:'🧀', desc:'Tteokbokki cremoso con queso derretido 🧀 Irresistible.' },
+  { id:'s15', name:'Ramen Ottogi picante', size:'Ottogi · $80', price:80, cat:'salados', tags:['picante','nuevo'], featured:false, img:'https://i.ibb.co/ZzHG8nZd/ottogi-picante.jpg', emoji:'🍜', desc:'Ramen Ottogi con su toque picante característico 🔥' },
+  { id:'s17', name:'Ramen sabor habanero', size:'Extra picante · $80', price:80, cat:'salados', tags:['picante','nuevo'], featured:false, img:'https://i.ibb.co/3LKgBvn/ramen-habanero.jpg', emoji:'🌶️', desc:'Ramen con habanero 🌶️ Para los amantes del picante extremo.' },
+  
+  // 🥤 Bebidas coreanas - ANTERIORES
   { id:'b1', name:'Malteada Binggrae (200 ml)', size:'Sabores: fresa 🍓, melón 🍈 y plátano 🍌', price:55, cat:'bebidas', tags:['popular'], featured:true, img:'https://i.ibb.co/YvgwKMn/IMG-7195.jpg', emoji:'🥤', desc:'La leche saborizada favorita de Corea 🇰🇷 Elige tu sabor en la nota del pedido.' },
   { id:'b2', name:'Malteada de taro Binggrae (200 ml)', size:'Binggrae UHT', price:55, cat:'bebidas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/chRxYFYn/IMG-7196.jpg', emoji:'🍠', desc:'Cremosa leche sabor taro 💜 Dulce, suave y diferente.' },
-  { id:'b3', name:'Milkis original (250 ml)', size:'Lotte', price:55, cat:'bebidas', tags:['popular'], featured:true, img:'https://i.ibb.co/BKZj5VL6/IMG-7198.jpg', emoji:'🥛', desc:'Refresco de leche con yogurt 🫧 Burbujeante, cremoso y único.' },
-  { id:'b4', name:'Milkis banana (250 ml)', size:'Lotte', price:55, cat:'bebidas', tags:[], featured:false, img:'https://i.ibb.co/DHJnzn3X/IMG-7197.jpg', emoji:'🍌', desc:'Milkis con sabor a plátano 🍌 La cream soda coreana más famosa.' },
-  { id:'b5', name:'Mogu Mogu con pedazos de fruta (320 ml)', size:'Sabores: lichi, frambuesa, fresa, piña, mango y durazno', price:60, cat:'bebidas', tags:[], featured:false, img:'https://i.ibb.co/NdHgZgNm/IMG-7199.jpg', emoji:'🧃', desc:'Jugo con nata de coco y trocitos de fruta reales 🍓 ¡Se mastica y se bebe!' },
-  { id:'b6', name:'Soju (360 ml)', size:'Sabores: uva 🍇, toronja, durazno, blueberry y yuja', price:130, cat:'bebidas', tags:['mas18'], featured:false, img:'https://i.ibb.co/fY78MzjT/IMG-7200.jpg', emoji:'🍶', desc:'La bebida clásica de Corea 🍶 🔞 Producto solo para mayores de edad.' },
+  { id:'b3', name:'Milkis (250 ml)', size:'Sabores: original, banana 🍌, melón 🍈, fresa 🍓, yogurt', price:55, cat:'bebidas', tags:['popular'], featured:true, img:'https://i.ibb.co/BKZj5VL6/IMG-7198.jpg', emoji:'🥛', desc:'Refresco de leche con yogurt 🫧 Burbujeante, cremoso y único. Elige tu sabor en la nota.' },
+  { id:'b5', name:'Mogu Mogu con pedazos de fruta (320 ml)', size:'Sabores: lichi, frambuesa, fresa, piña, mango, durazno, mora, sandía, uva', price:60, cat:'bebidas', tags:[], featured:false, img:'https://i.ibb.co/NdHgZgNm/IMG-7199.jpg', emoji:'🧃', desc:'Jugo con nata de coco y trocitos de fruta reales 🍓 ¡Se mastica y se bebe!' },
+  { id:'b6', name:'Soju de sabores (360 ml)', size:'Sabores: uva 🍇, toronja, durazno, blueberry y yuja', price:130, cat:'bebidas', tags:['mas18'], featured:false, img:'https://i.ibb.co/fY78MzjT/IMG-7200.jpg', emoji:'🍶', desc:'La bebida clásica de Corea 🍶 🔞 Producto solo para mayores de edad.' },
   { id:'b7', name:'Té de sandía (Cantabile · 230 ml)', size:'Cantabile Ade', price:55, cat:'bebidas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/mVPCYrYY/IMG-7211.jpg', emoji:'🍉', desc:'Ade de sandía súper refrescante 🍉 Dulce y fresquito.' },
   { id:'b8', name:'Té de limón azul (Cantabile · 230 ml)', size:'Cantabile Blue Lemon Ade', price:55, cat:'bebidas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/rRJvRG6d/IMG-7210.jpg', emoji:'🍋', desc:'Blue Lemon Ade 💙 Cítrico, dulce y hermoso.' },
   { id:'b9', name:'Té de uva verde (Cantabile · 230 ml)', size:'Cantabile Green Grape', price:55, cat:'bebidas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/mrxPn4Pv/IMG-7212.jpg', emoji:'🍇', desc:'Green Grape Ade 🍇 El sabor de las uvas verdes coreanas.' },
-  /* 🍪 Galletas y aperitivos */
+  
+  // 🥤 Bebidas coreanas - NUEVAS
+  { id:'b10', name:'Ramune', size:'Sabores: naranja 🍊, melón 🍈, fresa 🍓, yogurt, lichi · $70', price:70, cat:'bebidas', tags:['nuevo'], featured:true, img:'https://i.ibb.co/KCMKvr3/ramune.jpg', emoji:'🍾', desc:'La bebida japonesa/coreana con canica 🔵 Refrescante y divertida. Elige tu sabor en la nota.' },
+  { id:'b11', name:'Malteada de Café', size:'Binggrae · $55', price:55, cat:'bebidas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/NdYshcWV/malteada-cafe.jpg', emoji:'☕', desc:'Malteada Binggrae sabor café ☕ Para los amantes del café.' },
+  { id:'b12', name:'Té de durazno', size:'Cantabile · $55', price:55, cat:'bebidas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/MDWxz58J/te-durazno.jpg', emoji:'🍑', desc:'Té helado de durazno 🍑 Dulce y refrescante.' },
+  { id:'b13', name:'Té de café sabor vainilla', size:'Cantabile · $55', price:55, cat:'bebidas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/pr3SBs9B/te-cafe-vainilla.jpg', emoji:'☕', desc:'Té de café con toque de vainilla ☕ Suave y aromático.' },
+  { id:'b14', name:'Té sabor fresa', size:'Cantabile · $55', price:55, cat:'bebidas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/3mz8FRFW/te-fresa.jpg', emoji:'🍓', desc:'Té helado de fresa 🍓 Dulce y rosadito.' },
+  { id:'b15', name:'Jugo de uva verde con nata de coco', size:'Con coco real · $60', price:60, cat:'bebidas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/HLq1Z1nj/jugo-uva-coco.jpg', emoji:'🥥', desc:'Jugo de uva verde con trocitos de nata de coco 🥥 Refrescante y único.' },
+  { id:'b16', name:'Jugo de Lychee', size:'Natural · $60', price:60, cat:'bebidas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/67jLqBsb/jugo-lychee.jpg', emoji:'🍈', desc:'Jugo de lychee puro 🍈 Dulce y exótico.' },
+  { id:'b17', name:'Bubble MilkTea de Fresa', size:'Con tapioca · $60', price:60, cat:'bebidas', tags:['nuevo'], featured:true, img:'https://i.ibb.co/S4kxc90F/bubble-fresa.jpg', emoji:'🧋', desc:'Bubble tea de fresa con perlas de tapioca 🍓 Cremoso y delicioso.' },
+  { id:'b18', name:'Bubble MilkTea de Café', size:'Con tapioca · $60', price:60, cat:'bebidas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/HDnF2QH6/bubble-cafe.jpg', emoji:'🧋', desc:'Bubble tea de café con perlas de tapioca ☕ Para los amantes del café.' },
+  { id:'b19', name:'Jugo de durazno', size:'Natural · $55', price:55, cat:'bebidas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/bRbSZCxV/jugo-durazno.jpg', emoji:'🍑', desc:'Jugo de durazno natural 🍑 Dulce y refrescante.' },
+  { id:'b20', name:'Jugo de mango', size:'Natural · $60', price:60, cat:'bebidas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/ZRkYg82k/jugo-mango.jpg', emoji:'🥭', desc:'Jugo de mango tropical 🥭 Dulce y exótico.' },
+  { id:'b21', name:'Té de moras', size:'Cantabile · $55', price:55, cat:'bebidas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/PvyLWrSM/te-moras.jpg', emoji:'🫐', desc:'Té helado de moras 🫐 Antioxidante y delicioso.' },
+  { id:'b22', name:'Café riquísimo con 20 sobres', size:'Caja 20 sobres · $250', price:250, cat:'bebidas', tags:['nuevo','popular'], featured:true, img:'https://i.ibb.co/zTwx9JTN/cafe-20-sobres-1.jpg', emoji:'☕', desc:'Café coreano en sobres ☕ 20 unidades para disfrutar cuando quieras.' },
+  { id:'b23', name:'Té sabor café americano', size:'Cantabile · $55', price:55, cat:'bebidas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/t00QJym/te-cafe-americano.jpg', emoji:'☕', desc:'Té con sabor a café americano ☕ Suave y aromático.' },
+  { id:'b24', name:'Café 20 sobres', size:'Caja 20 sobres · $250', price:250, cat:'bebidas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/1GdxP4Jp/cafe-20-sobres-2.jpg', emoji:'☕', desc:'Café coreano premium en sobres ☕ 20 unidades.' },
+  { id:'b25', name:'Soju original', size:'360 ml · $200', price:200, cat:'bebidas', tags:['mas18','nuevo'], featured:false, img:'https://i.ibb.co/6RSK4rn9/soju-original.jpg', emoji:'🍶', desc:'Soju tradicional coreano 🍶 🔞 Producto solo para mayores de edad.' },
+  
+  // 🍪 Galletas y aperitivos - ANTERIORES
   { id:'g1',  name:'Pocky sabor matcha (30 g)', size:'Sablex', price:50, cat:'galletas', tags:[], featured:false, img:'https://i.ibb.co/HTxR77tZ/IMG-7204.jpg', emoji:'🍵', desc:'Palitos de galleta cubiertos de crema de té verde 🍵' },
   { id:'g2',  name:'Pocky sabor mora azul (30 g)', size:'Sablex', price:50, cat:'galletas', tags:[], featured:false, img:'https://i.ibb.co/4ZHHPx5j/IMG-7205.jpg', emoji:'🫐', desc:'Con trozos reales de mora azul 🫐 Dulce y frutal.' },
   { id:'g3',  name:'Pocky sabor melón (30 g)', size:'Sablex', price:50, cat:'galletas', tags:[], featured:false, img:'https://i.ibb.co/ymDMgqkT/IMG-7203.jpg', emoji:'🍈', desc:'Cobertura sabor melón con trocitos de fruta 🍈' },
@@ -434,16 +457,66 @@ const PRODUCTS = [
   { id:'g9',  name:'Pocky grande de chocolate (Pepero Original · 47 g)', size:'Lotte Pepero', price:60, cat:'galletas', tags:['popular','nuevo'], featured:true, img:'https://i.ibb.co/Kchkx3rN/IMG-7219.jpg', emoji:'🍫', desc:'El Pepero clásico de toda la vida 🍫 El No.1 de Corea.' },
   { id:'g10', name:'Pocky grande de almendra (Pepero Almond · 32 g)', size:'Lotte Pepero', price:60, cat:'galletas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/RTp243zw/IMG-7220.jpg', emoji:'🌰', desc:'Pepero con almendra crujiente 🌰 Crujido garantizado.' },
   { id:'g11', name:'Caja de Choco Pie (6 piezas)', size:'Lotte · 6 × 28 g', price:100, cat:'galletas', tags:['popular'], featured:true, img:'https://i.ibb.co/ksY2GkMc/IMG-7221.jpg', emoji:'🥧', desc:'El clásico Lotte Choco Pie: bizcocho suavecito, malvavisco y chocolate 💗' },
-  /* 🍡 Mochis */
+  
+  // 🍪 Galletas y aperitivos - NUEVOS
+  { id:'g13', name:'Pockys en bolsa grande (9 paquetes)', size:'Bolsa familiar · $145', price:145, cat:'galletas', tags:['nuevo','popular'], featured:true, img:'https://i.ibb.co/tw2CJqs7/pockys-bolsa-grande.jpg', emoji:'🍓', desc:'Bolsa grande con 9 paquetes de Pocky 🍓 Perfecto para compartir.' },
+  { id:'g14', name:'Caja galletas de vainilla', size:'Caja completa · $100', price:100, cat:'galletas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/hrP5gJj/galletas-vainilla.jpg', emoji:'🍪', desc:'Caja de galletas de vainilla 🍪 Crujientes y dulces.' },
+  
+  // 🍡 Mochis - ANTERIORES
   { id:'m1', name:'Mochis de cacao (8 pzas)', size:'Royal Family · 80 g', price:100, cat:'mochis', tags:['popular'], featured:true, img:'https://i.ibb.co/Y7bFHrm1/IMG-7214.jpg', emoji:'🍫', desc:'Suaves mochis estilo taro rellenos de crema de cacao 💜' },
   { id:'m2', name:'Mochis de durazno (132 g)', size:'Royal Family Fruit Mochi', price:110, cat:'mochis', tags:[], featured:true, img:'https://i.ibb.co/TMKkwMJs/IMG-7213.jpg', emoji:'🍑', desc:'Fruit Mochi de durazno con centro jugoso 🍑 Suavecitos y frescos.' },
   { id:'m3', name:'Mochis de mora azul (152 g)', size:'Royal Family Fruit Mochi', price:100, cat:'mochis', tags:[], featured:false, img:'https://i.ibb.co/h3YZFQM/IMG-7215.jpg', emoji:'🫐', desc:'Fruit Mochi de blueberry con relleno líquido 🫐' },
-  { id:'m4', name:'Mochis de vainilla (8 pzas)', size:'Royal Family · 120 g', price:100, cat:'mochis', tags:[], featured:false, img:'https://i.ibb.co/xK2GcJBn/IMG-7216.jpg', emoji:'🍦', desc:'Mochi relleno de crema de vainilla 🍦 8 piezas individuales.' }
+  { id:'m4', name:'Mochis de vainilla (8 pzas)', size:'Royal Family · 120 g', price:100, cat:'mochis', tags:[], featured:false, img:'https://i.ibb.co/xK2GcJBn/IMG-7216.jpg', emoji:'🍦', desc:'Mochi relleno de crema de vainilla 🍦 8 piezas individuales.' },
+  
+  // 🍡 Mochis - NUEVOS
+  { id:'m5', name:'Mochis de chocolate veganos', size:'Veganos · $100', price:100, cat:'mochis', tags:['nuevo'], featured:false, img:'https://i.ibb.co/FbNfKPZX/mochis-chocolate-veganos.jpg', emoji:'🍫', desc:'Mochis de chocolate 100% veganos 🌱 Sin ingredientes animales.' },
+  { id:'m6', name:'Mochis de tiramisú', size:'Premium · $100', price:100, cat:'mochis', tags:['nuevo'], featured:false, img:'https://i.ibb.co/LhJCMfHR/mochis-tiramisu.jpg', emoji:'☕', desc:'Mochis sabor tiramisú ☕ Con café y cacao.' },
+  { id:'m7', name:'Mochis de coco', size:'Tropical · $100', price:100, cat:'mochis', tags:['nuevo'], featured:false, img:'https://i.ibb.co/G3P92Dbq/mochis-coco.jpg', emoji:'🥥', desc:'Mochis rellenos de crema de coco 🥥 Tropical y delicioso.' },
+  { id:'m8', name:'Mochis de Matcha', size:'Té verde · $100', price:100, cat:'mochis', tags:['nuevo'], featured:false, img:'https://i.ibb.co/tpDRyYDC/mochis-matcha.jpg', emoji:'🍵', desc:'Mochis con crema de té verde matcha 🍵 Sabor auténtico japonés.' },
+  { id:'m9', name:'Mochis de Choco menta', size:'Refrescante · $100', price:100, cat:'mochis', tags:['nuevo'], featured:false, img:'https://i.ibb.co/Cp2T6bcB/mochis-choco-menta.jpg', emoji:'🌿', desc:'Mochis de chocolate con menta 🌿 Refrescante y delicioso.' },
+  { id:'m10', name:'Mochis de hot cakes', size:'Desayuno · $100', price:100, cat:'mochis', tags:['nuevo'], featured:false, img:'https://i.ibb.co/q3gjzy0j/mochis-hotcakes.jpg', emoji:'🥞', desc:'Mochis sabor hot cakes con maple 🥞 Dulce y reconfortante.' },
+  { id:'m11', name:'Mochis de pay de fresa', size:'Postre · $100', price:100, cat:'mochis', tags:['nuevo'], featured:true, img:'https://i.ibb.co/5ZMWYfv/mochis-pay-fresa.jpg', emoji:'🍓', desc:'Mochis sabor pay de fresa 🍓 Como un postre americano.' },
+  
+  // 🍬 Dulces y Gomitas - NUEVA CATEGORÍA
+  { id:'d1', name:'Dulces sabor café (kdramas)', size:'El de los K-dramas · $70', price:70, cat:'dulces', tags:['nuevo','popular'], featured:true, img:'https://i.ibb.co/qMHsgVcC/dulces-cafe-kdrama.jpg', emoji:'☕', desc:'Los famosos dulces de café que salen en los K-dramas ☕ ¡Pruébalos!' },
+  { id:'d2', name:'Gomitas de coca', size:'Sabor Coca-Cola · $55', price:55, cat:'dulces', tags:['nuevo'], featured:false, img:'https://i.ibb.co/nq5rtkD6/gomitas-coca.jpg', emoji:'🥤', desc:'Gomitas con sabor a Coca-Cola 🥤 Refrescantes y divertidas.' },
+  { id:'d3', name:'Gomitas de limón y lichi', size:'Mix frutal · $70', price:70, cat:'dulces', tags:['nuevo'], featured:false, img:'https://i.ibb.co/xTQwTdN/gomitas-limon-lichi.jpg', emoji:'🍋', desc:'Gomitas de limón y lichi 🍋 Cítricas y exóticas.' },
+  { id:'d4', name:'Gomitas manzana verde y durazno', size:'Mix frutal · $70', price:70, cat:'dulces', tags:['nuevo'], featured:false, img:'https://i.ibb.co/6RkL8Pzk/gomitas-manzana-durazno.jpg', emoji:'🍑', desc:'Gomitas de manzana verde y durazno 🍑 Dulces y refrescantes.' },
+  { id:'d5', name:'Gomitas de Matcha y yogurt', size:'Mix especial · $70', price:70, cat:'dulces', tags:['nuevo'], featured:false, img:'https://i.ibb.co/zhBQtNm8/gomitas-matcha-yogurt.jpg', emoji:'🍵', desc:'Gomitas de té verde matcha con yogurt 🍵 Únicas y deliciosas.' },
+  
+  // 🥔 Papas y botanas - NUEVA CATEGORÍA
+  { id:'p1', name:'Sabritas sabor plátano', size:'Únicas · $90', price:90, cat:'papas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/Nnd16Dhp/sabritas-platano.jpg', emoji:'🍌', desc:'Papas fritas sabor plátano 🍌 ¡Sí, saben a plátano! Sorprendentes.' },
+  { id:'p2', name:'Sabritas sabor pulpo', size:'Mariscos · $90', price:90, cat:'papas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/qM5r3gs3/sabritas-pulpo.jpg', emoji:'🐙', desc:'Papas fritas sabor pulpo 🐙 Sabor a marisco auténtico.' },
+  { id:'p3', name:'Sabritas sabor camarón', size:'Mariscos · $90', price:90, cat:'papas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/pvsM4j7y/sabritas-camaron.jpg', emoji:'🦐', desc:'Papas fritas sabor camarón 🦐 Crujientes y sabrosas.' },
+  { id:'p4', name:'Chips sabor camarón', size:'Otra marca · $90', price:90, cat:'papas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/2YMXB1bV/chips-camaron.jpg', emoji:'🦐', desc:'Chips de camarón de otra marca 🦐 Para comparar sabores.' },
+  { id:'p5', name:'Sabritas sabor miel con manzana', size:'Dulce-salado · $100', price:100, cat:'papas', tags:['nuevo'], featured:false, img:'https://i.ibb.co/5WKmdXLs/sabritas-miel-manzana.jpg', emoji:'🍎', desc:'Papas con miel y manzana 🍎 Combinación dulce-salada única.' }
 ];
 
-/* ══════════ 🛠️ BASE PARA FUTURO PANEL ADMIN ══════════ */
-const CATKEY = 'moon_catalog_v3';
-function getCatalog(){ try{ const r = localStorage.getItem(CATKEY); if(r){ const l = JSON.parse(r); if(Array.isArray(l) && l.length) return l; } }catch(e){} return PRODUCTS; }
+const CATKEY = 'moon_catalog_v6';
+function getCatalog(){
+  try{
+    const r = localStorage.getItem(CATKEY) || localStorage.getItem('moon_catalog_v5');
+    if(r){
+      const l = JSON.parse(r);
+      if(Array.isArray(l) && l.length){
+        // Limpieza de catálogo: elimina el Jin Ramen duplicado/broken y cualquier duplicado equivalente.
+        const seen = new Set();
+        const clean = l.filter(p => {
+          if(p.id === 's16') return false;
+          const key = `${String(p.name||'').trim().toLowerCase()}|${String(p.cat||'').trim().toLowerCase()}`;
+          if(key === 'ramen de jin|salados' || key === 'ramen jin|salados'){
+            if(seen.has('jin-ramen')) return false;
+            seen.add('jin-ramen');
+          }
+          return true;
+        });
+        localStorage.setItem(CATKEY, JSON.stringify(clean));
+        return clean;
+      }
+    }
+  }catch(e){}
+  return PRODUCTS;
+}
 const CATALOG = getCatalog();
 window.MoonAdmin = {
   list(){ return getCatalog(); },
@@ -454,7 +527,6 @@ window.MoonAdmin = {
   setWhatsApp(n){ localStorage.setItem('moon_wa', String(n).replace(/\D/g,'')); location.reload(); }
 };
 
-/* ══════════ ESTADO Y UTILIDADES ══════════ */
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 const fmt = n => 'MXN $' + n.toFixed(2);
@@ -493,7 +565,6 @@ function cardHTML(p){ return `
     </div>
   </article>`; }
 
-/* ══════════ RENDERIZADO ══════════ */
 function renderHome(){
   $('#heroImgs').innerHTML = ['s7','b1','m2','g11'].map(id => { const p = CATALOG.find(x=>x.id===id); return p ? pimg(p) : ''; }).join('');
   $('#homeCats').innerHTML = CATEGORIES.map(c => `<div class="cat" data-gocat="${c.id}"><span class="e">${c.emoji}</span><span class="n">${c.name}</span></div>`).join('');
@@ -600,7 +671,6 @@ function showDone(){
   }
 }
 
-/* ══════════ CARRITO / CHECKOUT ══════════ */
 function addToCart(id, qty=1){
   const p = CATALOG.find(x=>x.id===id);
   if(!p) return;
@@ -642,7 +712,6 @@ function checkout(){
   location.hash = '#/listo';
 }
 
-/* ══════════ LIGHTBOX (ampliar imagen) ══════════ */
 const lb = $('#lightbox'), lbImg = $('#lbImg');
 function openLightbox(src, cap){
   lbImg.classList.remove('zoom'); lbImg.style.transform = '';
@@ -662,7 +731,6 @@ lbImg.addEventListener('click', e => {
 lb.addEventListener('click', e => { if(e.target === lb) closeLightbox(); });
 $('#lbClose').addEventListener('click', closeLightbox);
 
-/* ══════════ UI GLOBAL ══════════ */
 let toastT;
 function toast(m){ const t = $('#toast'); t.textContent = m; t.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(()=>t.classList.remove('show'), 1900); }
 function popFab(){ const f = $('#fab'); f.classList.remove('pop'); void f.offsetWidth; f.classList.add('pop'); }
@@ -677,7 +745,6 @@ function updateChrome(){
   $('#fab').classList.toggle('hide', r === 'carrito' || r === 'listo' || r === 'admin');
 }
 
-/* ══════════ RUTAS ══════════ */
 function parseRoute(){
   const h = location.hash || '#/';
   if(h.startsWith('#/producto/'))  return { v:'producto', id:h.slice(10) };
@@ -703,7 +770,6 @@ function router(){
 }
 function goCat(id){ state.cat = id; location.hash = '#/productos?cat=' + id; }
 
-/* ══════════ EVENTOS ══════════ */
 document.addEventListener('click', e => {
   let el;
   if((el = e.target.closest('[data-dq]')))          { changeDetailQty(+el.dataset.dq); return; }
@@ -718,7 +784,6 @@ document.addEventListener('click', e => {
   if((el = e.target.closest('[data-goto]')))        { location.hash = el.dataset.goto; return; }
   if((el = e.target.closest('[data-open]')))        { location.hash = '#/producto/' + el.dataset.open; return; }
   if((el = e.target.closest('.ci-img')) && el.dataset.zoom === undefined && el.tagName === 'IMG'){ openLightbox(el.src, el.alt); return; }
-  if((el = e.target.closest('.dimg')) && el.tagName === 'DIV' && !e.target.closest('[data-zoom]')){ /* handled by data-zoom */ }
 });
 $('#fab').addEventListener('click', () => location.hash = '#/carrito');
 $('#btnSend').addEventListener('click', checkout);
@@ -728,7 +793,6 @@ $('#custName').addEventListener('input', e => { state.customer.name = e.target.v
 $('#custNote').addEventListener('input', e => { state.customer.note = e.target.value; localStorage.setItem('moon_customer', JSON.stringify(state.customer)); });
 window.addEventListener('hashchange', router);
 
-/* ══════════ INICIO ══════════ */
 try{ const lo = localStorage.getItem('moon_lastorder'); if(lo) state.lastOrder = JSON.parse(lo); }catch(e){}
 renderHome();
 router();
