@@ -325,6 +325,42 @@ main{padding-bottom:130px;min-height:60vh}
 .admin-card p{font-size:.9rem;color:var(--ink2);margin-bottom:10px}
 .admin-card li{margin:8px 0;list-style:none;font-size:.86rem;font-weight:600}
 .admin-card code{background:var(--pink2);border-radius:8px;padding:2px 8px;font-size:.8em;color:var(--rose-d)}
+
+.adm-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:14px 0}
+.adm-stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:12px 14px}
+.adm-stat b{font-family:var(--fs);font-size:1.5rem;display:block;line-height:1.1}
+.adm-stat span{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.adm-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.adm-bar input,.adm-bar select,.field select{border:1.5px solid var(--line);border-radius:14px;padding:10px 12px;font:inherit;font-size:16px;background:var(--card);color:var(--ink);outline:none}
+.adm-bar input{flex:1 1 180px}
+.adm-bar .btn,.adm-top .btn{padding:10px 16px;font-size:.78rem}
+.field select{width:100%;background:var(--cream)}
+.arow{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:10px;margin-bottom:8px}
+.athumb{position:relative;width:64px;height:64px;border-radius:12px;background:var(--pink2);display:grid;place-items:center;font-size:1.8rem;overflow:hidden;cursor:pointer}
+.athumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ainfo{min-width:0}
+.ainfo b{display:block;font-size:.9rem;line-height:1.25}
+.ainfo small{display:block;font-size:.68rem;color:var(--ink2)}
+.ainfo p{font-size:.74rem;color:var(--ink2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:2px}
+.aflags{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}
+.aflag{font-size:.6rem;font-weight:700;border-radius:99px;padding:2px 8px;background:var(--sage2);color:var(--sage-ink)}
+.aflag.w{background:#FFE9C7;color:#9A6200}
+.aside{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.aside b{font-family:var(--fs);font-size:1.05rem}
+.aside div{display:flex;gap:6px}
+.aside button{width:34px;height:34px;border-radius:11px;border:1px solid var(--line);background:var(--cream);color:var(--rose);display:grid;place-items:center}
+.aside button:hover{background:var(--pink2)}
+#admModal{position:fixed;inset:0;background:rgba(58,40,50,.55);z-index:110;display:none;align-items:flex-end;justify-content:center}
+#admModal.open{display:flex}
+.am-card{background:var(--card);width:min(560px,100%);max-height:92vh;overflow:auto;border-radius:26px 26px 0 0;padding:22px 20px calc(22px + env(safe-area-inset-bottom))}
+@media(min-width:700px){#admModal{align-items:center}.am-card{border-radius:26px}}
+.am-card h3{font-family:var(--fs);font-weight:500;font-size:1.4rem}
+.am-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.am-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.am-tags label{display:flex;align-items:center;gap:5px;font-size:.78rem;font-weight:600;letter-spacing:0;text-transform:none;color:var(--ink);margin:0}
+.am-prev{width:100%;height:150px;border-radius:16px;background:var(--pink2);display:grid;place-items:center;font-size:3rem;overflow:hidden;position:relative;margin-top:8px}
+.am-prev img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff}
+.am-act{display:flex;gap:8px;margin-top:18px}.am-act .btn{flex:1;padding:12px}
 /* ============ RESPONSIVE ============ */
 @media(min-width:900px){
   .hnav{display:flex}
@@ -527,18 +563,32 @@ main{padding-bottom:130px;min-height:60vh}
 <!-- ============ ADMIN ============ -->
 <section class="view" id="view-admin">
   <div class="wrap">
-    <div class="ctop"><a class="iconbtn" href="#/" aria-label="Volver"><span class="msr">arrow_back</span></a><h1>Panel administrativo</h1></div>
-    <div class="admin-card">
-      <h3>API desde la consola <span class="kr" style="color:var(--rose);font-size:.65em">관리자</span></h3>
-      <p>El catálogo vive en <code>localStorage</code>. Abre la consola del navegador y usa la API <code>MoonAdmin</code>:</p>
-      <ul>
-        <li>➕ <code>MoonAdmin.add({id:'x1',name:'Nuevo',price:50,cat:'bebidas',emoji:'🥤',size:'Fresa, mango',desc:'…'})</code></li>
-        <li>✏️ <code>MoonAdmin.update('s1',{price:85})</code></li>
-        <li>🖼️ <code>MoonAdmin.update('s1',{img:'URL_DE_TU_FOTO'})</code></li>
-        <li>🗑️ <code>MoonAdmin.remove('s1')</code></li>
-        <li>📱 <code>MoonAdmin.setWhatsApp('527671022442')</code></li>
-      </ul>
-      <p class="tiny">Ruta <code>#/admin</code> · Las bebidas cuyo campo <code>size</code> lista varios sabores mostrarán selector obligatorio automáticamente.</p>
+    <div class="ctop"><a class="iconbtn" href="#/" aria-label="Volver"><span class="msr">arrow_back</span></a><h1>Panel de productos</h1></div>
+    <div class="admin-card" id="admLogin" hidden style="max-width:420px">
+      <h3>Acceso administrador <span class="kr" style="color:var(--rose);font-size:.65em">관리자</span></h3>
+      <div class="field"><label for="lgMail">Correo</label><input id="lgMail" type="email" autocomplete="username"></div>
+      <div class="field"><label for="lgPass">Contraseña</label><input id="lgPass" type="password" autocomplete="current-password"></div>
+      <p class="tiny" id="lgErr" style="color:var(--rose)"></p>
+      <button class="btn btn-pink" id="lgBtn" style="width:100%;margin-top:8px">Entrar</button>
+    </div>
+    <div id="admApp" hidden>
+    <div class="adm-stats" id="admStats"></div>
+    <div class="adm-bar">
+      <input id="admQ" type="search" placeholder="Buscar nombre, ID o descripción">
+      <select id="admCat"></select>
+      <select id="admFlt"><option value="todos">Todos</option><option value="sinfoto">Sin foto</option><option value="repetida">Foto repetida</option><option value="mod">Modificados</option></select>
+    </div>
+    <div class="adm-bar adm-top">
+      <button class="btn btn-pink" id="admNew"><span class="msr" style="font-size:1rem">add</span> Nuevo producto</button>
+      <button class="btn btn-line" id="admExp"><span class="msr" style="font-size:1rem">download</span> Respaldo</button>
+      <button class="btn btn-line" id="admImp"><span class="msr" style="font-size:1rem">upload</span> Importar</button>
+      <button class="btn btn-line" id="admReset"><span class="msr" style="font-size:1rem">restart_alt</span> Restablecer</button>
+      <input type="file" id="admImpFile" accept="application/json" hidden>
+    </div>
+    <div id="admList"></div>
+    <div id="admDel"></div>
+    <div class="adm-bar" style="margin-top:14px"><button class="btn btn-line" id="admOut"><span class="msr" style="font-size:1rem">logout</span> Cerrar sesión</button></div>
+    <p class="tiny">Los cambios se guardan en Supabase y los ven todos los clientes.</p>
     </div>
   </div>
 </section>
@@ -569,6 +619,28 @@ main{padding-bottom:130px;min-height:60vh}
   </div>
 </div>
 
+<div id="admModal" role="dialog" aria-modal="true">
+  <div class="am-card">
+    <h3 id="amTitle">Producto</h3>
+    <div class="field"><label for="aName">Nombre</label><input id="aName"></div>
+    <div class="field"><label for="fSize">Presentación / sabores</label><input id="fSize" placeholder="Ej. Cantabile · 230 ml"></div>
+    <div class="am-2">
+      <div class="field"><label for="fPrice">Precio (MXN)</label><input id="fPrice" type="number" min="0" step="1" inputmode="numeric"></div>
+      <div class="field"><label for="fCat">Categoría</label><select id="fCat"></select></div>
+    </div>
+    <div class="field"><label for="fEmoji">Emoji</label><input id="fEmoji" maxlength="4"></div>
+    <div class="field"><label for="fDesc">Descripción</label><textarea id="fDesc" rows="3"></textarea></div>
+    <div class="field"><label>Etiquetas</label><div class="am-tags">
+      <label><input type="checkbox" value="nuevo"> Nuevo</label><label><input type="checkbox" value="popular"> Popular</label>
+      <label><input type="checkbox" value="picante"> Picante</label><label><input type="checkbox" value="mas18"> +18</label>
+      <label><input type="checkbox" id="fFeat"> Destacado</label></div></div>
+    <div class="field"><label for="fImg">Foto (URL)</label><input id="fImg" placeholder="https://… o img/archivo.jpg">
+      <div class="am-prev"><span id="amEmoji">🛍️</span><img id="amImg" alt="" hidden></div>
+      <div class="am-act" style="margin-top:8px"><button class="btn btn-line" id="fUp" type="button"><span class="msr" style="font-size:1rem">photo_camera</span> Subir foto</button><button class="btn btn-line" id="fNoImg" type="button">Quitar foto</button></div>
+      <input type="file" id="fFile" accept="image/*" hidden></div>
+    <div class="am-act"><button class="btn btn-line" id="amCancel" type="button">Cancelar</button><button class="btn btn-pink" id="amSave" type="button">Guardar</button></div>
+  </div>
+</div>
 <div id="lightbox" role="dialog" aria-modal="true">
   <button id="lbClose" aria-label="Cerrar"><span class="msr">close</span></button>
   <img id="lbImg" alt="">
@@ -577,6 +649,7 @@ main{padding-bottom:130px;min-height:60vh}
   <div id="lbHint">Toca la imagen para ampliar · cierra con la X, con Esc o tocando fuera</div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script>
 /* ================= DATOS (intactos) ================= */
 const STORE = {
@@ -1052,6 +1125,7 @@ function route(){
   $$('.nitem').forEach(a=>a.classList.toggle('on', a.dataset.nav===navKey[v]));
   if(v==='producto') renderDetail(arg);
   if(v==='carrito') renderCart();
+  if(v==='admin') renderAdmin();
   if(v==='listo') renderReceipt();
   if(v==='productos'){
     if(extra && extra.get('cat')){
@@ -1181,6 +1255,141 @@ window.MoonAdmin = {
     localStorage.setItem('moon_admin', JSON.stringify(CUSTOM)); renderAll(); toast('Producto eliminado 🗑️'); },
   setWhatsApp(n){ STORE.whatsapp = n; localStorage.setItem('moon_wa', n); applyContact(); toast('WhatsApp actualizado 📱'); }
 };
+
+/* ================= PANEL ADMIN (UI) ================= */
+const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const baseIds = new Set(PRODUCTS.map(p => p.id));
+const ADM = { q:'', cat:'todas', flt:'todos', id:null, img:'' };
+const SB_URL = 'https://boodbvwouiuihttbxmhr.supabase.co';
+const SB_KEY = 'sb_publishable_RnODP6TN94NrhWgwyECU0A_0mBFF9Zi';
+const SB = window.supabase ? window.supabase.createClient(SB_URL, SB_KEY) : null;
+let session = null;
+const toRow = p => p.deleted ? { id:p.id, deleted:true } : { id:p.id, name:p.name, size:p.size||'', price:p.price, cat:p.cat, tags:p.tags||[],
+  featured:!!p.featured, img:p.img||'', emoji:p.emoji||'🛍️', description:p.desc||'', deleted:false };
+const fromRow = r => r.deleted ? { id:r.id, deleted:true } : { id:r.id, name:r.name||'', size:r.size||'', price:Number(r.price)||0, cat:r.cat,
+  tags:r.tags||[], featured:!!r.featured, img:r.img||'', emoji:r.emoji||'🛍️', desc:r.description||'' };
+async function loadRemote(){
+  if(!SB) return;
+  const { data, error } = await SB.from('products').select('*');
+  if(error){ console.warn('Supabase:', error.message); return; }
+  CUSTOM = data.map(fromRow);
+  try{ localStorage.setItem('moon_admin', JSON.stringify(CUSTOM)); }catch(e){}
+  renderAll();
+  if($('#view-admin').classList.contains('on')) renderAdmin();
+}
+async function commit(op, okMsg){
+  if(!SB || !session){ toast('Inicia sesión ❌'); return false; }
+  const { error } = await op();
+  if(error){ console.error(error); toast('Error: ' + error.message + ' ❌'); return false; }
+  await loadRemote(); toast(okMsg); return true;
+}
+function renderAdmin(){
+  $('#admLogin').hidden = !!session; $('#admApp').hidden = !session;
+  if(!session) return;
+  const all = ALL(), used = {};
+  all.forEach(p => { if(p.img) used[p.img] = (used[p.img]||0) + 1; });
+  const flags = p => ({ nofoto:!p.img, rep:!!p.img && used[p.img] > 1, mod:CUSTOM.some(c => c.id===p.id && !c.deleted) });
+  const cnt = k => all.filter(p => flags(p)[k]).length;
+  $('#admStats').innerHTML = [['Productos',all.length],['Sin foto',cnt('nofoto')],['Foto repetida',cnt('rep')],['Modificados',cnt('mod')]]
+    .map(([l,n]) => `<div class="adm-stat"><b>${n}</b><span>${l}</span></div>`).join('');
+  if(!$('#admCat').options.length) $('#admCat').innerHTML = '<option value="todas">Todas las categorías</option>' + CATEGORIES.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+  const q = ADM.q.toLowerCase();
+  const rows = all.filter(p => (ADM.cat==='todas' || p.cat===ADM.cat)
+    && (!q || (p.name+' '+p.id+' '+p.desc).toLowerCase().includes(q))
+    && (ADM.flt==='todos' || (ADM.flt==='sinfoto' && flags(p).nofoto) || (ADM.flt==='repetida' && flags(p).rep) || (ADM.flt==='mod' && flags(p).mod)));
+  $('#admList').innerHTML = rows.map(p => {
+    const f = flags(p);
+    return `<div class="arow"><div class="athumb" data-edit="${esc(p.id)}"><span>${esc(p.emoji)}</span>${p.img?`<img src="${esc(p.img)}" alt="" loading="lazy" onerror="this.remove()">`:''}</div>
+    <div class="ainfo"><b>${esc(p.name)}</b><small>${esc(p.id)} · ${esc(catOf(p.cat).name)} · ${esc(p.size)}</small><p>${esc(p.desc)}</p>
+    <div class="aflags">${f.nofoto?'<span class="aflag w">Sin foto</span>':''}${f.rep?'<span class="aflag w">Foto repetida</span>':''}${f.mod?'<span class="aflag">Modificado</span>':''}${p.featured?'<span class="aflag">Destacado</span>':''}${p.tags.map(t=>`<span class="aflag">${esc(t)}</span>`).join('')}</div></div>
+    <div class="aside"><b>${fmt(p.price)}</b><div><button data-edit="${esc(p.id)}" aria-label="Editar"><span class="msr" style="font-size:1.05rem">edit</span></button><button data-del="${esc(p.id)}" aria-label="Eliminar"><span class="msr" style="font-size:1.05rem">delete</span></button></div></div></div>`;
+  }).join('') || '<p class="tiny">Sin resultados.</p>';
+  const dels = CUSTOM.filter(c => c.deleted).map(c => PRODUCTS.find(p => p.id===c.id)).filter(Boolean);
+  $('#admDel').innerHTML = dels.length ? '<h3 style="font-family:var(--fs);font-weight:500;margin:18px 0 8px">Eliminados</h3>' + dels.map(p =>
+    `<div class="arow" style="grid-template-columns:1fr auto"><div class="ainfo"><b>${esc(p.name)}</b><small>${esc(p.id)}</small></div><button class="btn btn-line" style="padding:8px 14px;font-size:.75rem" data-restore="${esc(p.id)}">Restaurar</button></div>`).join('') : '';
+}
+function setPrev(){
+  const im = $('#amImg'); im.hidden = !ADM.img; if(ADM.img) im.src = ADM.img;
+  $('#amEmoji').textContent = $('#fEmoji').value || '🛍️';
+}
+function openForm(id){
+  const p = id ? byId(id) : { name:'', size:'', price:'', cat:CATEGORIES[0].id, tags:[], featured:false, img:'', emoji:'🛍️', desc:'' };
+  ADM.id = id; ADM.img = p.img || '';
+  $('#amTitle').textContent = id ? 'Editar producto' : 'Nuevo producto';
+  $('#fCat').innerHTML = CATEGORIES.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+  $('#aName').value = p.name; $('#fSize').value = p.size; $('#fPrice').value = p.price; $('#fCat').value = p.cat;
+  $('#fEmoji').value = p.emoji; $('#fDesc').value = p.desc; $('#fFeat').checked = !!p.featured;
+  $('#fImg').value = ADM.img.startsWith('data:') ? '' : ADM.img;
+  $('#fImg').placeholder = ADM.img.startsWith('data:') ? 'Foto subida desde el dispositivo ✔' : 'https://… o img/archivo.jpg';
+  $$('.am-tags input[value]').forEach(c => c.checked = p.tags.includes(c.value));
+  setPrev(); $('#admModal').classList.add('open');
+}
+const closeForm = () => $('#admModal').classList.remove('open');
+async function saveForm(){
+  const name = $('#aName').value.trim(), price = Number($('#fPrice').value);
+  if(!name) return toast('Escribe el nombre ❌');
+  if($('#fPrice').value === '' || !(price >= 0)) return toast('Precio no válido ❌');
+  const p = { id: ADM.id || ('x' + Date.now()), name, size:$('#fSize').value.trim(), price, cat:$('#fCat').value,
+    tags:$$('.am-tags input[value]:checked').map(c => c.value), featured:$('#fFeat').checked, img:ADM.img,
+    emoji:$('#fEmoji').value.trim() || '🛍️', desc:$('#fDesc').value.trim() };
+  if(await commit(() => SB.from('products').upsert(toRow(p)), ADM.id ? 'Producto actualizado ✅' : 'Producto agregado ✅')) closeForm();
+}
+function resizeImg(file){
+  if(!SB || !session) return toast('Inicia sesión ❌');
+  const r = new FileReader();
+  r.onload = () => { const im = new Image();
+    im.onload = () => { const k = Math.min(1, 900 / Math.max(im.width, im.height)), c = document.createElement('canvas');
+      c.width = Math.round(im.width*k); c.height = Math.round(im.height*k); c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+      c.toBlob(async b => { const name = 'p_' + Date.now() + '.jpg';
+        const { error } = await SB.storage.from('product-images').upload(name, b, { contentType:'image/jpeg' });
+        if(error) return toast('No se pudo subir: ' + error.message + ' ❌');
+        ADM.img = SB.storage.from('product-images').getPublicUrl(name).data.publicUrl;
+        $('#fImg').value = ADM.img; setPrev(); toast('Foto subida ✅'); }, 'image/jpeg', .82); };
+    im.onerror = () => toast('Imagen no válida ❌'); im.src = r.result; };
+  r.readAsDataURL(file);
+}
+$('#admQ').addEventListener('input', e => { ADM.q = e.target.value; renderAdmin(); });
+$('#admCat').addEventListener('change', e => { ADM.cat = e.target.value; renderAdmin(); });
+$('#admFlt').addEventListener('change', e => { ADM.flt = e.target.value; renderAdmin(); });
+$('#admNew').onclick = () => openForm(null);
+$('#view-admin').addEventListener('click', async e => {
+  const t = e.target.closest('[data-edit],[data-del],[data-restore]'); if(!t) return;
+  if(t.dataset.edit) return openForm(t.dataset.edit);
+  if(t.dataset.del){ const p = byId(t.dataset.del); if(!p || !confirm('¿Eliminar "' + p.name + '"?')) return;
+    return commit(() => baseIds.has(p.id) ? SB.from('products').upsert(toRow({ id:p.id, deleted:true })) : SB.from('products').delete().eq('id', p.id), 'Producto eliminado 🗑️'); }
+  commit(() => SB.from('products').delete().eq('id', t.dataset.restore), 'Producto restaurado ✅');
+});
+$('#admReset').onclick = () => { if(confirm('¿Descartar TODOS los cambios y volver al catálogo original?')) commit(() => SB.from('products').delete().neq('id', '__ninguno__'), 'Catálogo restablecido'); };
+$('#admExp').onclick = () => { const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(CUSTOM, null, 1)], {type:'application/json'})); a.download = 'moon-productos.json'; a.click(); URL.revokeObjectURL(a.href); };
+$('#admImp').onclick = () => $('#admImpFile').click();
+$('#admImpFile').addEventListener('change', e => { const f = e.target.files[0]; if(!f) return;
+  f.text().then(t => { const d = JSON.parse(t);
+    if(!Array.isArray(d) || d.some(x => !x || typeof x.id !== 'string' || (!x.deleted && (typeof x.name !== 'string' || !Array.isArray(x.tags) || isNaN(Number(x.price)))))) throw 0;
+    commit(() => SB.from('products').upsert(d.map(x => toRow({ ...x, price:Number(x.price) }))), 'Respaldo importado ✅'); }).catch(() => toast('Archivo no válido ❌')); e.target.value = ''; });
+$('#fImg').addEventListener('input', e => { ADM.img = e.target.value.trim(); setPrev(); });
+$('#fEmoji').addEventListener('input', setPrev);
+$('#fUp').onclick = () => $('#fFile').click();
+$('#fFile').addEventListener('change', e => { if(e.target.files[0]) resizeImg(e.target.files[0]); e.target.value = ''; });
+$('#fNoImg').onclick = () => { ADM.img = ''; $('#fImg').value = ''; $('#fImg').placeholder = 'https://… o img/archivo.jpg'; setPrev(); };
+$('#amSave').onclick = saveForm; $('#amCancel').onclick = closeForm;
+$('#admModal').addEventListener('click', e => { if(e.target.id === 'admModal') closeForm(); });
+
+async function doLogin(){
+  if(!SB) return;
+  $('#lgErr').textContent = '';
+  const { error } = await SB.auth.signInWithPassword({ email:$('#lgMail').value.trim(), password:$('#lgPass').value });
+  if(error){ $('#lgErr').textContent = 'Correo o contraseña incorrectos'; return; }
+  $('#lgPass').value = '';
+}
+$('#lgBtn').onclick = doLogin;
+$('#lgPass').addEventListener('keydown', e => { if(e.key === 'Enter') doLogin(); });
+$('#admOut').onclick = () => SB && SB.auth.signOut();
+if(SB){
+  SB.auth.onAuthStateChange((_e, sess) => { session = sess; if($('#view-admin').classList.contains('on')) renderAdmin(); });
+  SB.auth.getSession().then(({ data }) => { session = data.session; if($('#view-admin').classList.contains('on')) renderAdmin(); });
+  loadRemote();
+}
 
 /* ================= INIT ================= */
 function applyContact(){
