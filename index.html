@@ -357,7 +357,11 @@ main{padding-bottom:130px;min-height:60vh}
 .am-card h3{font-family:var(--fs);font-weight:500;font-size:1.4rem}
 .am-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .am-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
-.am-tags label{display:flex;align-items:center;gap:5px;font-size:.78rem;font-weight:600;letter-spacing:0;text-transform:none;color:var(--ink);margin:0}
+.am-tags{gap:8px}
+.am-tags label{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;letter-spacing:0;text-transform:none;color:var(--ink);margin:0;padding:8px 14px;border:1.5px solid var(--line);border-radius:999px;background:var(--cream);cursor:pointer;transition:.15s}
+.am-tags label:has(input:checked){background:var(--pink2);border-color:var(--pink-deep);color:var(--rose-d)}
+.field .am-tags input[type=checkbox]{width:16px;height:16px;padding:0;margin:0;border:0;border-radius:4px;box-shadow:none;background:none;accent-color:var(--rose);flex:none}
+.aflag.n{background:#DCEBFF;color:#2F5F9E}.aflag.p{background:#FFE3EA;color:var(--rose-d)}.aflag.h{background:#FFD9D0;color:#B23A1F}.aflag.a{background:#EADDF7;color:#6B3FA0}
 .am-prev{width:100%;height:150px;border-radius:16px;background:var(--pink2);display:grid;place-items:center;font-size:3rem;overflow:hidden;position:relative;margin-top:8px}
 .am-prev img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff}
 .am-act{display:flex;gap:8px;margin-top:18px}.am-act .btn{flex:1;padding:12px}
@@ -1258,6 +1262,7 @@ window.MoonAdmin = {
 
 /* ================= PANEL ADMIN (UI) ================= */
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const TAGL = { nuevo:['Nuevo','n'], popular:['Popular','p'], picante:['Picante','h'], mas18:['+18','a'] };
 const baseIds = new Set(PRODUCTS.map(p => p.id));
 const ADM = { q:'', cat:'todas', flt:'todos', id:null, img:'' };
 const SB_URL = 'https://boodbvwouiuihttbxmhr.supabase.co';
@@ -1301,7 +1306,7 @@ function renderAdmin(){
     const f = flags(p);
     return `<div class="arow"><div class="athumb" data-edit="${esc(p.id)}"><span>${esc(p.emoji)}</span>${p.img?`<img src="${esc(p.img)}" alt="" loading="lazy" onerror="this.remove()">`:''}</div>
     <div class="ainfo"><b>${esc(p.name)}</b><small>${esc(p.id)} · ${esc(catOf(p.cat).name)} · ${esc(p.size)}</small><p>${esc(p.desc)}</p>
-    <div class="aflags">${f.nofoto?'<span class="aflag w">Sin foto</span>':''}${f.rep?'<span class="aflag w">Foto repetida</span>':''}${f.mod?'<span class="aflag">Modificado</span>':''}${p.featured?'<span class="aflag">Destacado</span>':''}${p.tags.map(t=>`<span class="aflag">${esc(t)}</span>`).join('')}</div></div>
+    <div class="aflags">${f.nofoto?'<span class="aflag w">Sin foto</span>':''}${f.rep?'<span class="aflag w">Foto repetida</span>':''}${f.mod?'<span class="aflag">Modificado</span>':''}${p.featured?'<span class="aflag">Destacado</span>':''}${p.tags.map(t=>{const m=TAGL[t]||[t,''];return `<span class="aflag ${m[1]}">${esc(m[0])}</span>`}).join('')}</div></div>
     <div class="aside"><b>${fmt(p.price)}</b><div><button data-edit="${esc(p.id)}" aria-label="Editar"><span class="msr" style="font-size:1.05rem">edit</span></button><button data-del="${esc(p.id)}" aria-label="Eliminar"><span class="msr" style="font-size:1.05rem">delete</span></button></div></div></div>`;
   }).join('') || '<p class="tiny">Sin resultados.</p>';
   const dels = CUSTOM.filter(c => c.deleted).map(c => PRODUCTS.find(p => p.id===c.id)).filter(Boolean);
