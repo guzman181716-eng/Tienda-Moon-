@@ -350,10 +350,10 @@ main{padding-bottom:130px;min-height:60vh}
 .aside div{display:flex;gap:6px}
 .aside button{width:34px;height:34px;border-radius:11px;border:1px solid var(--line);background:var(--cream);color:var(--rose);display:grid;place-items:center}
 .aside button:hover{background:var(--pink2)}
-#admModal{position:fixed;inset:0;background:rgba(58,40,50,.55);z-index:110;display:none;align-items:flex-end;justify-content:center}
-#admModal.open{display:flex}
+#admModal,#admModal2{position:fixed;inset:0;background:rgba(58,40,50,.55);z-index:110;display:none;align-items:flex-end;justify-content:center}
+#admModal.open,#admModal2.open{display:flex}
 .am-card{background:var(--card);width:min(560px,100%);max-height:92vh;overflow:auto;border-radius:26px 26px 0 0;padding:22px 20px calc(22px + env(safe-area-inset-bottom))}
-@media(min-width:700px){#admModal{align-items:center}.am-card{border-radius:26px}}
+@media(min-width:700px){#admModal,#admModal2{align-items:center}.am-card{border-radius:26px}}
 .am-card h3{font-family:var(--fs);font-weight:500;font-size:1.4rem}
 .am-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .am-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
@@ -364,6 +364,10 @@ main{padding-bottom:130px;min-height:60vh}
 .aflag.n{background:#DCEBFF;color:#2F5F9E}.aflag.p{background:#FFE3EA;color:var(--rose-d)}.aflag.h{background:#FFD9D0;color:#B23A1F}.aflag.a{background:#EADDF7;color:#6B3FA0}
 .am-prev{width:100%;height:150px;border-radius:16px;background:var(--pink2);display:grid;place-items:center;font-size:3rem;overflow:hidden;position:relative;margin-top:8px}
 .am-prev img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff}
+.bg-x{background:var(--sage2);color:var(--sage-ink);border:1px solid var(--sage)}
+.tpills{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 12px}
+.tpill{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:600;padding:6px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line)}
+.tpill button{border:0;background:none;color:var(--rose);font-size:.9rem;line-height:1;padding:0}
 .am-act{display:flex;gap:8px;margin-top:18px}.am-act .btn{flex:1;padding:12px}
 /* ============ RESPONSIVE ============ */
 @media(min-width:900px){
@@ -584,11 +588,14 @@ main{padding-bottom:130px;min-height:60vh}
     </div>
     <div class="adm-bar adm-top">
       <button class="btn btn-pink" id="admNew"><span class="msr" style="font-size:1rem">add</span> Nuevo producto</button>
+      <button class="btn btn-line" id="admNewCat"><span class="msr" style="font-size:1rem">category</span> Nueva categoría</button>
+      <button class="btn btn-line" id="admNewTag"><span class="msr" style="font-size:1rem">sell</span> Nueva etiqueta</button>
       <button class="btn btn-line" id="admExp"><span class="msr" style="font-size:1rem">download</span> Respaldo</button>
       <button class="btn btn-line" id="admImp"><span class="msr" style="font-size:1rem">upload</span> Importar</button>
       <button class="btn btn-line" id="admReset"><span class="msr" style="font-size:1rem">restart_alt</span> Restablecer</button>
       <input type="file" id="admImpFile" accept="application/json" hidden>
     </div>
+    <div id="admTax"></div>
     <div id="admList"></div>
     <div id="admDel"></div>
     <div class="adm-bar" style="margin-top:14px"><button class="btn btn-line" id="admOut"><span class="msr" style="font-size:1rem">logout</span> Cerrar sesión</button></div>
@@ -634,15 +641,22 @@ main{padding-bottom:130px;min-height:60vh}
     </div>
     <div class="field"><label for="fEmoji">Emoji</label><input id="fEmoji" maxlength="4"></div>
     <div class="field"><label for="fDesc">Descripción</label><textarea id="fDesc" rows="3"></textarea></div>
-    <div class="field"><label>Etiquetas</label><div class="am-tags">
-      <label><input type="checkbox" value="nuevo"> Nuevo</label><label><input type="checkbox" value="popular"> Popular</label>
-      <label><input type="checkbox" value="picante"> Picante</label><label><input type="checkbox" value="mas18"> +18</label>
+    <div class="field"><label>Etiquetas</label><div class="am-tags"><span id="fTagsDyn" style="display:contents"></span>
       <label><input type="checkbox" id="fFeat"> Destacado</label></div></div>
     <div class="field"><label for="fImg">Foto (URL)</label><input id="fImg" placeholder="https://… o img/archivo.jpg">
       <div class="am-prev"><span id="amEmoji">🛍️</span><img id="amImg" alt="" hidden></div>
       <div class="am-act" style="margin-top:8px"><button class="btn btn-line" id="fUp" type="button"><span class="msr" style="font-size:1rem">photo_camera</span> Subir foto</button><button class="btn btn-line" id="fNoImg" type="button">Quitar foto</button></div>
       <input type="file" id="fFile" accept="image/*" hidden></div>
     <div class="am-act"><button class="btn btn-line" id="amCancel" type="button">Cancelar</button><button class="btn btn-pink" id="amSave" type="button">Guardar</button></div>
+  </div>
+</div>
+<div id="admModal2" role="dialog" aria-modal="true">
+  <div class="am-card">
+    <h3 id="m2Title"></h3>
+    <div class="field"><label for="m2Name">Nombre</label><input id="m2Name" maxlength="40"></div>
+    <div class="field" id="m2EmojiF"><label for="m2Emoji">Emoji</label><input id="m2Emoji" maxlength="4" placeholder="🍫"></div>
+    <div class="field" id="m2KrF"><label for="m2Kr">Nombre en coreano (opcional)</label><input id="m2Kr" maxlength="30" placeholder="과자"></div>
+    <div class="am-act"><button class="btn btn-line" id="m2Cancel" type="button">Cancelar</button><button class="btn btn-pink" id="m2Save" type="button">Crear</button></div>
   </div>
 </div>
 <div id="lightbox" role="dialog" aria-modal="true">
@@ -674,7 +688,7 @@ const IMG = {
   n_bub_taro:'img/n_bub_taro.jpg', n_mochi_mango:'img/n_mochi_mango.jpg', n_ramen_tacos:'img/n_ramen_tacos.jpg',
   n_buldak_topokki:'img/n_buldak_topokki.jpg', n_yopokki_arroz:'img/n_yopokki_arroz.jpg', n_bub_taro_lady:'img/n_bub_taro_lady.jpg'
 };
-const CATEGORIES = [
+const BASE_CATS = [
   { id:'salados',  emoji:'🍜', name:'Bocadillos salados',  kr:'라면·떡볶이' },
   { id:'bebidas',  emoji:'🥤', name:'Bebidas coreanas',    kr:'음료·차' },
   { id:'galletas', emoji:'🍪', name:'Galletas y aperitivos',kr:'과자' },
@@ -682,6 +696,12 @@ const CATEGORIES = [
   { id:'dulces',   emoji:'🍬', name:'Dulces y gomitas',     kr:'젤리·캔디' },
   { id:'papas',    emoji:'🥔', name:'Papas y botanas',      kr:'스낵' }
 ];
+let CATEGORIES = BASE_CATS.slice();
+let CUSTOM_TAGS = [];
+try{
+  CATEGORIES = BASE_CATS.concat(JSON.parse(localStorage.getItem('moon_cats') || '[]'));
+  CUSTOM_TAGS = JSON.parse(localStorage.getItem('moon_tags') || '[]');
+}catch(e){}
 const P = (id,name,size,price,cat,tags,featured,img,emoji,desc)=>({id,name,size,price,cat,tags,featured,img,emoji,desc});
 const PRODUCTS = [
   // 🍜 SALADOS
@@ -827,6 +847,7 @@ function stamps(p){
   if(p.tags.includes('popular')) b += '<span class="bg bg-pop">Popular</span>';
   if(p.tags.includes('picante')) b += '<span class="bg bg-hot">Picante</span>';
   if(p.tags.includes('mas18'))   b += '<span class="bg bg-18">+18</span>';
+  CUSTOM_TAGS.forEach(t => { if(p.tags.includes(t.id)) b += `<span class="bg bg-x">${t.label}</span>`; });
   return b ? `<div class="stamps">${b}</div>` : '';
 }
 /* Tarjeta con lupa visible; "+" respeta el selector de sabor */
@@ -902,7 +923,7 @@ function chipsData(){
   const tags = [
     {k:'todos',n:'Todo'},{k:'popular',n:'Populares'},{k:'picante',n:'Picante 🌶️'},
     {k:'nuevo',n:'Nuevos ✦'},{k:'mas18',n:'+18 🔞'}
-  ];
+  ].concat(CUSTOM_TAGS.map(t => ({k:t.id, n:t.label})));
   return tags.concat(CATEGORIES.map(c=>({k:'cat:'+c.id, n:c.emoji+' '+c.name})));
 }
 function renderChips(){
@@ -943,7 +964,7 @@ function renderDetail(id){
         <h1 class="d-name">${p.name}</h1>
         <div class="d-price">${fmt(p.price)} <small>MXN</small></div>
         <p class="d-desc">${p.desc}</p>
-        <div class="d-tags"><span class="dtag">${p.size}</span>${p.tags.includes('picante')?'<span class="dtag hot">🌶️ Picante</span>':''}${p.tags.includes('mas18')?'<span class="dtag hot">🔞 +18</span>':''}${p.featured?'<span class="dtag">⭐ Popular</span>':''}</div>
+        <div class="d-tags"><span class="dtag">${p.size}</span>${p.tags.includes('picante')?'<span class="dtag hot">🌶️ Picante</span>':''}${p.tags.includes('mas18')?'<span class="dtag hot">🔞 +18</span>':''}${p.featured?'<span class="dtag">⭐ Popular</span>':''}${CUSTOM_TAGS.filter(t=>p.tags.includes(t.id)).map(t=>`<span class="dtag">${t.label}</span>`).join('')}</div>
         ${fls.length?`<div class="fsec" id="flavorSec">
           <p class="flabel">Elige un sabor <span>*</span></p>
           <div class="fchips" id="dFlavors">${fls.map(f=>`<button class="fchip" data-df="${f.clean}">${f.raw}</button>`).join('')}</div>
@@ -1263,6 +1284,10 @@ window.MoonAdmin = {
 /* ================= PANEL ADMIN (UI) ================= */
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const TAGL = { nuevo:['Nuevo','n'], popular:['Popular','p'], picante:['Picante','h'], mas18:['+18','a'] };
+const ALLTAGS = () => [{id:'nuevo',label:'Nuevo'},{id:'popular',label:'Popular'},{id:'picante',label:'Picante'},{id:'mas18',label:'+18'}].concat(CUSTOM_TAGS);
+const tagInfo = t => TAGL[t] || (CUSTOM_TAGS.find(x => x.id === t) ? [CUSTOM_TAGS.find(x => x.id === t).label, ''] : [t, '']);
+const clean = v => String(v || '').replace(/[<>"'&`]/g, '').trim();
+const slug = v => clean(v).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const baseIds = new Set(PRODUCTS.map(p => p.id));
 const ADM = { q:'', cat:'todas', flt:'todos', id:null, img:'' };
 const SB_URL = 'https://boodbvwouiuihttbxmhr.supabase.co';
@@ -1275,10 +1300,16 @@ const fromRow = r => r.deleted ? { id:r.id, deleted:true } : { id:r.id, name:r.n
   tags:r.tags||[], featured:!!r.featured, img:r.img||'', emoji:r.emoji||'🛍️', desc:r.description||'' };
 async function loadRemote(){
   if(!SB) return;
-  const { data, error } = await SB.from('products').select('*');
-  if(error){ console.warn('Supabase:', error.message); return; }
-  CUSTOM = data.map(fromRow);
-  try{ localStorage.setItem('moon_admin', JSON.stringify(CUSTOM)); }catch(e){}
+  const [pr, ca, tg] = await Promise.all([SB.from('products').select('*'),
+    SB.from('categories').select('*').order('sort').order('id'), SB.from('tags').select('*').order('created_at')]);
+  if(pr.error){ console.warn('Supabase:', pr.error.message); return; }
+  CUSTOM = pr.data.map(fromRow);
+  if(!ca.error){ CATEGORIES = BASE_CATS.concat(ca.data.filter(c => !BASE_CATS.some(b => b.id === c.id))
+    .map(c => ({ id:c.id, name:c.name, emoji:c.emoji || '🛍️', kr:c.kr || '' }))); }
+  if(!tg.error){ CUSTOM_TAGS = tg.data.map(t => ({ id:t.id, label:t.label })); }
+  try{ localStorage.setItem('moon_admin', JSON.stringify(CUSTOM));
+    localStorage.setItem('moon_cats', JSON.stringify(CATEGORIES.slice(BASE_CATS.length)));
+    localStorage.setItem('moon_tags', JSON.stringify(CUSTOM_TAGS)); }catch(e){}
   renderAll();
   if($('#view-admin').classList.contains('on')) renderAdmin();
 }
@@ -1297,7 +1328,10 @@ function renderAdmin(){
   const cnt = k => all.filter(p => flags(p)[k]).length;
   $('#admStats').innerHTML = [['Productos',all.length],['Sin foto',cnt('nofoto')],['Foto repetida',cnt('rep')],['Modificados',cnt('mod')]]
     .map(([l,n]) => `<div class="adm-stat"><b>${n}</b><span>${l}</span></div>`).join('');
-  if(!$('#admCat').options.length) $('#admCat').innerHTML = '<option value="todas">Todas las categorías</option>' + CATEGORIES.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+  $('#admCat').innerHTML = '<option value="todas">Todas las categorías</option>' + CATEGORIES.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+  $('#admCat').value = CATEGORIES.some(c => c.id === ADM.cat) ? ADM.cat : (ADM.cat = 'todas');
+  $('#admTax').innerHTML = '<div class="tpills">' + CATEGORIES.map((c,i) => `<span class="tpill">${c.emoji} ${c.name}${i >= BASE_CATS.length ? `<button data-delcat="${c.id}" aria-label="Eliminar categoría">✕</button>` : ''}</span>`).join('') + '</div>'
+    + '<div class="tpills">' + ALLTAGS().map((t,i) => `<span class="tpill">🏷️ ${t.label}${i >= 4 ? `<button data-deltag="${t.id}" aria-label="Eliminar etiqueta">✕</button>` : ''}</span>`).join('') + '</div>';
   const q = ADM.q.toLowerCase();
   const rows = all.filter(p => (ADM.cat==='todas' || p.cat===ADM.cat)
     && (!q || (p.name+' '+p.id+' '+p.desc).toLowerCase().includes(q))
@@ -1306,7 +1340,7 @@ function renderAdmin(){
     const f = flags(p);
     return `<div class="arow"><div class="athumb" data-edit="${esc(p.id)}"><span>${esc(p.emoji)}</span>${p.img?`<img src="${esc(p.img)}" alt="" loading="lazy" onerror="this.remove()">`:''}</div>
     <div class="ainfo"><b>${esc(p.name)}</b><small>${esc(p.id)} · ${esc(catOf(p.cat).name)} · ${esc(p.size)}</small><p>${esc(p.desc)}</p>
-    <div class="aflags">${f.nofoto?'<span class="aflag w">Sin foto</span>':''}${f.rep?'<span class="aflag w">Foto repetida</span>':''}${f.mod?'<span class="aflag">Modificado</span>':''}${p.featured?'<span class="aflag">Destacado</span>':''}${p.tags.map(t=>{const m=TAGL[t]||[t,''];return `<span class="aflag ${m[1]}">${esc(m[0])}</span>`}).join('')}</div></div>
+    <div class="aflags">${f.nofoto?'<span class="aflag w">Sin foto</span>':''}${f.rep?'<span class="aflag w">Foto repetida</span>':''}${f.mod?'<span class="aflag">Modificado</span>':''}${p.featured?'<span class="aflag">Destacado</span>':''}${p.tags.map(t=>{const m=tagInfo(t);return `<span class="aflag ${m[1]}">${esc(m[0])}</span>`}).join('')}</div></div>
     <div class="aside"><b>${fmt(p.price)}</b><div><button data-edit="${esc(p.id)}" aria-label="Editar"><span class="msr" style="font-size:1.05rem">edit</span></button><button data-del="${esc(p.id)}" aria-label="Eliminar"><span class="msr" style="font-size:1.05rem">delete</span></button></div></div></div>`;
   }).join('') || '<p class="tiny">Sin resultados.</p>';
   const dels = CUSTOM.filter(c => c.deleted).map(c => PRODUCTS.find(p => p.id===c.id)).filter(Boolean);
@@ -1326,6 +1360,7 @@ function openForm(id){
   $('#fEmoji').value = p.emoji; $('#fDesc').value = p.desc; $('#fFeat').checked = !!p.featured;
   $('#fImg').value = ADM.img.startsWith('data:') ? '' : ADM.img;
   $('#fImg').placeholder = ADM.img.startsWith('data:') ? 'Foto subida desde el dispositivo ✔' : 'https://… o img/archivo.jpg';
+  $('#fTagsDyn').innerHTML = ALLTAGS().map(t => `<label><input type="checkbox" value="${t.id}"> ${t.label}</label>`).join('');
   $$('.am-tags input[value]').forEach(c => c.checked = p.tags.includes(c.value));
   setPrev(); $('#admModal').classList.add('open');
 }
@@ -1380,6 +1415,35 @@ $('#fNoImg').onclick = () => { ADM.img = ''; $('#fImg').value = ''; $('#fImg').p
 $('#amSave').onclick = saveForm; $('#amCancel').onclick = closeForm;
 $('#admModal').addEventListener('click', e => { if(e.target.id === 'admModal') closeForm(); });
 
+let M2 = 'cat';
+function openM2(kind){ M2 = kind;
+  $('#m2Title').textContent = kind === 'cat' ? 'Nueva categoría' : 'Nueva etiqueta';
+  $('#m2EmojiF').hidden = $('#m2KrF').hidden = kind !== 'cat';
+  $('#m2Name').value = $('#m2Emoji').value = $('#m2Kr').value = '';
+  $('#admModal2').classList.add('open'); setTimeout(() => $('#m2Name').focus(), 50); }
+const closeM2 = () => $('#admModal2').classList.remove('open');
+async function saveM2(){
+  const name = clean($('#m2Name').value);
+  if(!name) return toast('Escribe el nombre ❌');
+  const taken = new Set(['todos','todas','populares','nuevos','popular','nuevo','picante','mas18'].concat(CATEGORIES.map(c => c.id), CUSTOM_TAGS.map(t => t.id)));
+  let id = slug(name) || ('x' + Date.now()), n = 2; const b = id; while(taken.has(id)) id = b + '-' + n++;
+  const op = M2 === 'cat'
+    ? () => SB.from('categories').insert({ id, name, emoji:clean($('#m2Emoji').value) || '🛍️', kr:clean($('#m2Kr').value), sort:CATEGORIES.length })
+    : () => SB.from('tags').insert({ id, label:name });
+  if(await commit(op, M2 === 'cat' ? 'Categoría creada ✅' : 'Etiqueta creada ✅')) closeM2();
+}
+$('#admNewCat').onclick = () => openM2('cat'); $('#admNewTag').onclick = () => openM2('tag');
+$('#m2Save').onclick = saveM2; $('#m2Cancel').onclick = closeM2;
+$('#m2Name').addEventListener('keydown', e => { if(e.key === 'Enter') saveM2(); });
+$('#admModal2').addEventListener('click', e => { if(e.target.id === 'admModal2') closeM2(); });
+$('#admTax').addEventListener('click', e => {
+  const t = e.target.closest('[data-delcat],[data-deltag]'); if(!t) return;
+  if(t.dataset.delcat){ const id = t.dataset.delcat, c = CATEGORIES.find(x => x.id === id), n = ALL().filter(p => p.cat === id).length;
+    if(n) return toast('Esa categoría tiene ' + n + ' producto(s). Muévelos primero ❌');
+    if(confirm('¿Eliminar la categoría "' + c.name + '"?')) commit(() => SB.from('categories').delete().eq('id', id), 'Categoría eliminada 🗑️'); }
+  else { const id = t.dataset.deltag, x = CUSTOM_TAGS.find(y => y.id === id);
+    if(confirm('¿Eliminar la etiqueta "' + x.label + '"? Los productos dejarán de mostrarla.')) commit(() => SB.from('tags').delete().eq('id', id), 'Etiqueta eliminada 🗑️'); }
+});
 async function doLogin(){
   if(!SB) return;
   $('#lgErr').textContent = '';
